@@ -1,0 +1,43 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+Tu budu ulohy, ktore budu riesit. Mali by byt zoradene od najlahsej po najtazsiu. Najlahsie budu robit na zaciatku, este ked pisu zltym na oranzove pozadie:)
+
+
+= Details =
+
+Spravte lubovolny program, ktory sa da skompilovat.
+
+Spravte program, ktory vypise 0.
+
+Spravte program, ktory vypise "Hello world!".
+
+Spravte program, ktory vypise prirodzene cisla od 22 po 88 oddelene medzerou.
+
+Na vstupe je int n, vypiste sucet cisel od 1 po n.
+
+Na vstupe je int n, k, vypiste pocet cifier n v k-ckovej sustave, alebo 0, ak neexistuje.
+
+Na vstupe je int n, vypiste n faktorial.
+
+Na vstupe je int n, vypiste n-te fibonacciho cislo.
+
+Na vstupe je string s, vypiste znak, ktory sa v s vyskytuje najcastejsie.
+
+Na vstupe je int n,string s, vypiste vsetky znaky v s, ktore sa tam nachadzaju aspon n krat.
+
+Na vstupe je string s, vypiste s sprava dolava.
+
+Na vstupe je string s,p, vypiste pocet vyskytov p v s.
+
+Na vstup je int n, potom n intov k, vypiste median.
+
+Na vstup je int n, m, potom m intov k, vypiste ci existuju dva, ktorych rozdiel je n.
+
+
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
