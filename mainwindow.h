@@ -17,16 +17,14 @@ public:
 	void show();
 public slots:
 	void reload();
-
+	void submit();
+        void godmode();
 protected:
     void changeEvent(QEvent *e);
 	Settings* s;
 
 private:
     Ui::MainWindow *ui;
-
-private slots:
-	void on_pushButton_clicked();
 };
 
 #endif // MAINWINDOW_H
