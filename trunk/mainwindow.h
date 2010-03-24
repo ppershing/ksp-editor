@@ -18,9 +18,10 @@ public:
 public slots:
 	void reload();
 	void submit();
-        void godmode();
+	void godmode();
 protected:
     void changeEvent(QEvent *e);
+	void resizeEvent(QResizeEvent *e);
 	Settings* s;
 
 private:

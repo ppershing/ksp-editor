@@ -36,6 +36,10 @@ void MainWindow::changeEvent(QEvent *e)
     }
 }
 
+void MainWindow::resizeEvent(QResizeEvent *e){
+	ui->textEdit->resize(this->size());
+}
+
 void MainWindow::show(){
 	this->reload();
 	QMainWindow::show();
@@ -69,6 +73,8 @@ void MainWindow::reload(){
 		"color: "+s->getProp("color/text").toString()+";"
 		"}";
 	qApp->setStyleSheet(sheet);
+
+
 }
 
 void MainWindow::submit(){
