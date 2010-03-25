@@ -22,6 +22,7 @@ public slots:
 protected:
     void changeEvent(QEvent *e);
 	void resizeEvent(QResizeEvent *e);
+	void customResize();
 	Settings* s;
 
 private:
