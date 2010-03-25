@@ -37,7 +37,11 @@ void MainWindow::changeEvent(QEvent *e)
 }
 
 void MainWindow::resizeEvent(QResizeEvent *e){
-	ui->textEdit->resize(this->size());
+	customResize();
+}
+
+void MainWindow::customResize(){
+	ui->textEdit->resize(this->width(),this->height()-(20*s->getProp("statusbar/enabled").toInt()));
 }
 
 void MainWindow::show(){
@@ -74,7 +78,9 @@ void MainWindow::reload(){
 		"}";
 	qApp->setStyleSheet(sheet);
 
+	//STATUSBAR
 
+	customResize();
 }
 
 void MainWindow::submit(){
