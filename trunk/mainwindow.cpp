@@ -9,10 +9,15 @@ MainWindow::MainWindow(QWidget *parent) :
 {
 	ui->setupUi(this);
 	s = new Settings();
+	sd = new ShopDialog(s);
+	QShortcut* f1 = new QShortcut( Qt::Key_F1, this );
+	connect(f1,SIGNAL(activated()),this,SLOT(help()));
 	QShortcut* f5 = new QShortcut( Qt::Key_F5, this );
 	connect(f5,SIGNAL(activated()),this,SLOT(reload()));
 	QShortcut* f6 = new QShortcut( Qt::Key_F6, this );
 	connect(f6,SIGNAL(activated()),this,SLOT(submit()));
+	QShortcut* f7 = new QShortcut( Qt::Key_F7, this );
+	connect(f7,SIGNAL(activated()),sd,SLOT(show()));
 	QShortcut* tazb = new QShortcut( QKeySequence(Qt::CTRL + Qt::Key_T,Qt::CTRL+Qt::Key_A,Qt::CTRL+Qt::Key_Z,Qt::CTRL+Qt::Key_B), this );
 	connect(tazb,SIGNAL(activated()),this,SLOT(godmode()));
 
@@ -49,6 +54,10 @@ void MainWindow::customResize(){
 void MainWindow::show(){
 	this->reload();
 	QMainWindow::show();
+}
+
+void MainWindow::help(){
+	QMessageBox::information(0,"Help","F1: Help\nF5: Reload\nF6: Submit\nF7: Shop");
 }
 
 void MainWindow::reload(){
