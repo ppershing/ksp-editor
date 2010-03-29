@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QDebug>
 #include "settings.h"
+#include "shopdialog.h"
 
 namespace Ui {
     class MainWindow;
@@ -16,6 +17,7 @@ public:
     ~MainWindow();
 	void show();
 public slots:
+	void help();
 	void reload();
 	void submit();
 	void godmode();
@@ -29,6 +31,7 @@ protected:
 
 private:
     Ui::MainWindow *ui;
+	ShopDialog* sd;
 };
 
 #endif // MAINWINDOW_H

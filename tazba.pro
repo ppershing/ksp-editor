@@ -5,7 +5,10 @@ TARGET = tazba
 TEMPLATE = app
 SOURCES += main.cpp \
     mainwindow.cpp \
-    settings.cpp
+    settings.cpp \
+    shopdialog.cpp
 HEADERS += mainwindow.h \
-    settings.h
-FORMS += mainwindow.ui
+    settings.h \
+    shopdialog.h
+FORMS += mainwindow.ui \
+    shopdialog.ui
