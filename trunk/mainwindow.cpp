@@ -16,6 +16,8 @@ MainWindow::MainWindow(QWidget *parent) :
 	QShortcut* tazb = new QShortcut( QKeySequence(Qt::CTRL + Qt::Key_T,Qt::CTRL+Qt::Key_A,Qt::CTRL+Qt::Key_Z,Qt::CTRL+Qt::Key_B), this );
 	connect(tazb,SIGNAL(activated()),this,SLOT(godmode()));
 
+	connect(ui->textEdit,SIGNAL(cursorPositionChanged()),this,SLOT(positionChanged()));
+
 }
 
 MainWindow::~MainWindow()
@@ -81,6 +83,7 @@ void MainWindow::reload(){
 	//STATUSBAR
 
 	customResize();
+	updateStatus();
 }
 
 void MainWindow::submit(){
@@ -89,4 +92,19 @@ void MainWindow::submit(){
 
 void MainWindow::godmode(){
   QMessageBox::information(0,"Godmode","You have just entered god mode.");
+}
+
+void MainWindow::positionChanged(){
+	updateStatus();
+}
+
+void MainWindow::updateStatus(){
+	QString status="";
+	if(s->getProp("statusbar/lineNumber").toInt())
+		status += "Line number: " + QString::number(ui->textEdit->textCursor().blockNumber()) + " ";
+	if(s->getProp("statusbar/columnNumber").toInt())
+		status += "Column number: " + QString::number(ui->textEdit->textCursor().columnNumber()) + " ";
+	if(s->getProp("statusbar/credits").toInt())
+		status += "Number of credits: "+ QString::number(s->getProp("credits/count").toInt()) +" ";
+	ui->label->setText(status);
 }
