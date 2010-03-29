@@ -6,9 +6,12 @@ TEMPLATE = app
 SOURCES += main.cpp \
     mainwindow.cpp \
     settings.cpp \
-    shopdialog.cpp
+    shopdialog.cpp \
+    kupondialog.cpp
 HEADERS += mainwindow.h \
     settings.h \
-    shopdialog.h
+    shopdialog.h \
+    kupondialog.h
 FORMS += mainwindow.ui \
-    shopdialog.ui
+    shopdialog.ui \
+    kupondialog.ui
