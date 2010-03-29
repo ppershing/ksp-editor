@@ -5,6 +5,7 @@
 #include <QDebug>
 #include "settings.h"
 #include "shopdialog.h"
+#include "kupondialog.h"
 
 namespace Ui {
     class MainWindow;
@@ -32,6 +33,7 @@ protected:
 private:
     Ui::MainWindow *ui;
 	ShopDialog* sd;
+	KuponDialog* kd;
 };
 
 #endif // MAINWINDOW_H
