@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	connect(f6,SIGNAL(activated()),this,SLOT(submit()));
 	QShortcut* f7 = new QShortcut( Qt::Key_F7, this );
 	connect(f7,SIGNAL(activated()),shopDialog,SLOT(show()));
+	connect(shopDialog,SIGNAL(accepted()),this,SLOT(reload()));
 	QShortcut* f8 = new QShortcut( Qt::Key_F8, this );
 	connect(f8,SIGNAL(activated()),kuponDialog,SLOT(show()));
 	connect(kuponDialog,SIGNAL(accepted()),this,SLOT(reload()));
