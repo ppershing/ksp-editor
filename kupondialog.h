@@ -2,6 +2,7 @@
 #define KUPONDIALOG_H
 
 #include <QDialog>
+#include "settings.h"
 
 namespace Ui {
     class KuponDialog;
@@ -10,14 +11,18 @@ namespace Ui {
 class KuponDialog : public QDialog {
     Q_OBJECT
 public:
-    KuponDialog(QWidget *parent = 0);
+	KuponDialog(Settings* settings, QWidget *parent = 0);
     ~KuponDialog();
+
+public slots:
+	void accept();
 
 protected:
     void changeEvent(QEvent *e);
 
 private:
     Ui::KuponDialog *ui;
+	Settings* s;
 };
 
 #endif // KUPONDIALOG_H
