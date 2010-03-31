@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>240</width>
+    <width>309</width>
     <height>300</height>
    </rect>
   </property>
@@ -19,8 +19,8 @@
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>240</y>
+     <x>100</x>
+     <y>220</y>
      <width>171</width>
      <height>32</height>
     </rect>
@@ -37,90 +37,118 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>221</width>
+     <width>291</width>
      <height>201</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>Upgrade</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>Status bar</string>
-      </property>
-     </widget>
-    </item>
     <item row="2" column="0">
-     <widget class="QLabel" name="label_3">
+     <widget class="QCheckBox" name="checkBox">
       <property name="text">
-       <string>Line number</string>
+       <string>Decresase font size 1</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="0">
+     <widget class="QCheckBox" name="checkBox_2">
+      <property name="text">
+       <string>Upgrade font family 2</string>
       </property>
      </widget>
     </item>
     <item row="3" column="0">
-     <widget class="QLabel" name="label_4">
+     <widget class="QCheckBox" name="checkBox_3">
       <property name="text">
-       <string>Column number</string>
+       <string>Decresase font size 2</string>
       </property>
      </widget>
     </item>
-    <item row="0" column="1">
-     <widget class="QLabel" name="label_5">
+    <item row="4" column="0">
+     <widget class="QCheckBox" name="checkBox_4">
       <property name="text">
-       <string>Cena</string>
+       <string>Decresase font size 3</string>
       </property>
      </widget>
     </item>
-    <item row="0" column="2">
-     <widget class="QLabel" name="label_6">
+    <item row="5" column="0">
+     <widget class="QCheckBox" name="checkBox_5">
       <property name="text">
-       <string/>
+       <string>increase contrasst 1</string>
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
-     <widget class="QLabel" name="label_7">
+    <item row="6" column="0">
+     <widget class="QCheckBox" name="checkBox_6">
       <property name="text">
-       <string>5</string>
+       <string>increase contrasst 2</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0">
+     <widget class="QCheckBox" name="checkBox_7">
+      <property name="text">
+       <string>Upgrade font family 1</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0">
+     <widget class="QCheckBox" name="checkBox_8">
+      <property name="text">
+       <string>increase contrasst 3</string>
       </property>
      </widget>
     </item>
     <item row="2" column="1">
-     <widget class="QLabel" name="label_8">
+     <widget class="QCheckBox" name="checkBox_9">
       <property name="text">
-       <string>2</string>
+       <string>Decresase word spacing</string>
       </property>
      </widget>
     </item>
     <item row="3" column="1">
-     <widget class="QLabel" name="label_9">
+     <widget class="QCheckBox" name="checkBox_10">
       <property name="text">
-       <string>2</string>
+       <string>Enable keyboard navigation</string>
       </property>
      </widget>
     </item>
-    <item row="1" column="2">
-     <widget class="QCheckBox" name="checkBox">
+    <item row="4" column="1">
+     <widget class="QCheckBox" name="checkBox_11">
+      <property name="text">
+       <string>Show statusbar</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QCheckBox" name="checkBox_12">
+      <property name="text">
+       <string>Show line number</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QCheckBox" name="checkBox_13">
+      <property name="text">
+       <string>Show ciolumn number</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QCheckBox" name="checkBox_14">
+      <property name="text">
+       <string>Show number of credits</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="1">
+     <widget class="QCheckBox" name="checkBox_15">
       <property name="text">
        <string>CheckBox</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="2">
-     <widget class="QCheckBox" name="checkBox_2">
-      <property name="text">
-       <string>CheckBox</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="2">
-     <widget class="QCheckBox" name="checkBox_3">
+    <item row="9" column="1">
+     <widget class="QCheckBox" name="checkBox_16">
       <property name="text">
        <string>CheckBox</string>
       </property>

@@ -25,3 +25,7 @@ void ShopDialog::changeEvent(QEvent *e)
         break;
     }
 }
+
+void ShopDialog::accept(){
+	QDialog::accept();
+}

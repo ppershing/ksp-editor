@@ -14,6 +14,9 @@ public:
 	ShopDialog(Settings* settings,QWidget *parent = 0);
     ~ShopDialog();
 
+public slots:
+	void accept();
+
 protected:
     void changeEvent(QEvent *e);
 
