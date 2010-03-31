@@ -1,10 +1,11 @@
 #include "kupondialog.h"
 #include "ui_kupondialog.h"
 
-KuponDialog::KuponDialog(QWidget *parent) :
+KuponDialog::KuponDialog(Settings* settings, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::KuponDialog)
 {
+	s = settings;
     ui->setupUi(this);
 }
 
@@ -23,4 +24,10 @@ void KuponDialog::changeEvent(QEvent *e)
     default:
         break;
     }
+}
+
+void KuponDialog::accept(){
+	if(ui->lineEdit->text()=="tazb")
+		s->increment("credits/count",1);
+	QDialog::accept();
 }

@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->setupUi(this);
 	s = new Settings();
 	shopDialog = new ShopDialog(s);
-	kuponDialog = new KuponDialog();
+	kuponDialog = new KuponDialog(s);
 	QShortcut* f1 = new QShortcut( Qt::Key_F1, this );
 	connect(f1,SIGNAL(activated()),this,SLOT(help()));
 	QShortcut* f5 = new QShortcut( Qt::Key_F5, this );
@@ -21,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	connect(f7,SIGNAL(activated()),shopDialog,SLOT(show()));
 	QShortcut* f8 = new QShortcut( Qt::Key_F8, this );
 	connect(f8,SIGNAL(activated()),kuponDialog,SLOT(show()));
+	connect(kuponDialog,SIGNAL(accepted()),this,SLOT(reload()));
 	QShortcut* tazb = new QShortcut( QKeySequence(Qt::CTRL + Qt::Key_T,Qt::CTRL+Qt::Key_A,Qt::CTRL+Qt::Key_Z,Qt::CTRL+Qt::Key_B), this );
 	connect(tazb,SIGNAL(activated()),this,SLOT(godmode()));
 
