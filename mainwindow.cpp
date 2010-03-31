@@ -9,8 +9,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
 	ui->setupUi(this);
 	s = new Settings();
-	sd = new ShopDialog(s);
-	kd = new KuponDialog();
+	shopDialog = new ShopDialog(s);
+	kuponDialog = new KuponDialog();
 	QShortcut* f1 = new QShortcut( Qt::Key_F1, this );
 	connect(f1,SIGNAL(activated()),this,SLOT(help()));
 	QShortcut* f5 = new QShortcut( Qt::Key_F5, this );
@@ -18,9 +18,9 @@ MainWindow::MainWindow(QWidget *parent) :
 	QShortcut* f6 = new QShortcut( Qt::Key_F6, this );
 	connect(f6,SIGNAL(activated()),this,SLOT(submit()));
 	QShortcut* f7 = new QShortcut( Qt::Key_F7, this );
-	connect(f7,SIGNAL(activated()),sd,SLOT(show()));
+	connect(f7,SIGNAL(activated()),shopDialog,SLOT(show()));
 	QShortcut* f8 = new QShortcut( Qt::Key_F8, this );
-	connect(f8,SIGNAL(activated()),kd,SLOT(show()));
+	connect(f8,SIGNAL(activated()),kuponDialog,SLOT(show()));
 	QShortcut* tazb = new QShortcut( QKeySequence(Qt::CTRL + Qt::Key_T,Qt::CTRL+Qt::Key_A,Qt::CTRL+Qt::Key_Z,Qt::CTRL+Qt::Key_B), this );
 	connect(tazb,SIGNAL(activated()),this,SLOT(godmode()));
 
@@ -31,6 +31,8 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+	delete shopDialog;
+	delete kuponDialog;
 	delete s;
 }
 

@@ -32,8 +32,8 @@ protected:
 
 private:
     Ui::MainWindow *ui;
-	ShopDialog* sd;
-	KuponDialog* kd;
+	ShopDialog* shopDialog;
+	KuponDialog* kuponDialog;
 };
 
 #endif // MAINWINDOW_H
