@@ -12,6 +12,18 @@ QVariant Settings::getProp(QString propName, QVariant def){
 	return s->value(propName,def);
 }
 
+bool Settings::getBool(QString propName){
+	return s->value(propName,false).toBool();
+}
+
+int Settings::getInt(QString propName){
+	return s->value(propName,0).toInt();
+}
+
+QString Settings::getString(QString propName){
+	return s->value(propName,"").toString();
+}
+
 void Settings::setProp(QString propName, QVariant value){
 	s->setValue(propName,value);
 }

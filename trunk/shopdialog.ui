@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>309</width>
-    <height>300</height>
+    <height>263</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -43,98 +43,98 @@
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="2" column="0">
-     <widget class="QCheckBox" name="checkBox">
+     <widget class="QCheckBox" name="checkBoxFontSize1">
       <property name="text">
        <string>Decresase font size 1</string>
       </property>
      </widget>
     </item>
     <item row="9" column="0">
-     <widget class="QCheckBox" name="checkBox_2">
+     <widget class="QCheckBox" name="checkBoxFontFamily2">
       <property name="text">
        <string>Upgrade font family 2</string>
       </property>
      </widget>
     </item>
     <item row="3" column="0">
-     <widget class="QCheckBox" name="checkBox_3">
+     <widget class="QCheckBox" name="checkBoxFontSize2">
       <property name="text">
        <string>Decresase font size 2</string>
       </property>
      </widget>
     </item>
     <item row="4" column="0">
-     <widget class="QCheckBox" name="checkBox_4">
+     <widget class="QCheckBox" name="checkBoxFontSize3">
       <property name="text">
        <string>Decresase font size 3</string>
       </property>
      </widget>
     </item>
     <item row="5" column="0">
-     <widget class="QCheckBox" name="checkBox_5">
+     <widget class="QCheckBox" name="checkBoxContrast1">
       <property name="text">
        <string>increase contrasst 1</string>
       </property>
      </widget>
     </item>
     <item row="6" column="0">
-     <widget class="QCheckBox" name="checkBox_6">
+     <widget class="QCheckBox" name="checkBoxContrast2">
       <property name="text">
        <string>increase contrasst 2</string>
       </property>
      </widget>
     </item>
     <item row="8" column="0">
-     <widget class="QCheckBox" name="checkBox_7">
+     <widget class="QCheckBox" name="checkBoxFontFamily1">
       <property name="text">
        <string>Upgrade font family 1</string>
       </property>
      </widget>
     </item>
     <item row="7" column="0">
-     <widget class="QCheckBox" name="checkBox_8">
+     <widget class="QCheckBox" name="checkBoxContrast3">
       <property name="text">
        <string>increase contrasst 3</string>
       </property>
      </widget>
     </item>
     <item row="2" column="1">
-     <widget class="QCheckBox" name="checkBox_9">
+     <widget class="QCheckBox" name="checkBoxWordSpacing">
       <property name="text">
        <string>Decresase word spacing</string>
       </property>
      </widget>
     </item>
     <item row="3" column="1">
-     <widget class="QCheckBox" name="checkBox_10">
+     <widget class="QCheckBox" name="checkBoxKeyboardNavigation">
       <property name="text">
        <string>Enable keyboard navigation</string>
       </property>
      </widget>
     </item>
     <item row="4" column="1">
-     <widget class="QCheckBox" name="checkBox_11">
+     <widget class="QCheckBox" name="checkBoxStatusBar">
       <property name="text">
        <string>Show statusbar</string>
       </property>
      </widget>
     </item>
     <item row="5" column="1">
-     <widget class="QCheckBox" name="checkBox_12">
+     <widget class="QCheckBox" name="checkBoxLineNumber">
       <property name="text">
        <string>Show line number</string>
       </property>
      </widget>
     </item>
     <item row="6" column="1">
-     <widget class="QCheckBox" name="checkBox_13">
+     <widget class="QCheckBox" name="checkBoxColumnNumber">
       <property name="text">
        <string>Show ciolumn number</string>
       </property>
      </widget>
     </item>
     <item row="7" column="1">
-     <widget class="QCheckBox" name="checkBox_14">
+     <widget class="QCheckBox" name="checkBoxCredits">
       <property name="text">
        <string>Show number of credits</string>
       </property>

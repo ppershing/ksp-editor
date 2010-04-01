@@ -9,6 +9,9 @@ public:
     Settings();
 	void load();
 	QVariant getProp(QString propName,QVariant def=NULL);
+	bool getBool(QString propName);
+	int getInt(QString propName);
+	QString getString(QString propName);
 	void setProp(QString propName,QVariant value=1);
 	/**
 	  * toggles value of property between 0 and 1
