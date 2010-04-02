@@ -73,6 +73,7 @@ void MainWindow::reload(){
 
 	// FONT
 
+	ui->textEdit->setFontFamily(s->getString("font/family"));
 	QFont f = ui->textEdit->document()->defaultFont();
 	f.setPointSize(s->getInt("font/size"));
 	f.setWordSpacing(s->getInt("font/word_spacing"));
@@ -88,6 +89,7 @@ void MainWindow::reload(){
 	if(s->getBool("interaction/editable"))flags|=Qt::TextEditable;
 	qDebug() << "flags: " << QString::number(flags);
 	ui->textEdit->setTextInteractionFlags(flags);
+	ui->textEdit->setUndoRedoEnabled(s->getBool("interaction/undoRedo"));
 
 	//COLORS
 
