@@ -26,7 +26,7 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	QMapIterator<QString, QCheckBox*> i(checkBoxes);
 	while(i.hasNext()){
 		i.next();
-		connect(i.value(),SIGNAL(clicked()),this,SLOT(reload()));
+		connect(i.value(),SIGNAL(toggled(bool)),this,SLOT(reload()));
 	}
 	prices["fontSize1"]=1;
 	prices["fontSize2"]=1;
@@ -80,6 +80,14 @@ void ShopDialog::reload(){
 }
 
 void ShopDialog::accept(){
+	QMapIterator<QString, QCheckBox*> i(checkBoxes);
+	while(i.hasNext()){
+		i.next();
+		if(i.value()->isChecked() && !s->getBool("upgrades/"+i.key())){
+			upgrade(i.key());
+		}
+	}
+	s->setProp("credits/count",credits);
 	QDialog::accept();
 }
 
@@ -115,12 +123,30 @@ nezaskrtnute nemamNaTo nemamTo-DIS
 }
 
 void ShopDialog::reset(){
-	credits = s->getInt("credits/count");
 	QMapIterator<QString, QCheckBox*> i(checkBoxes);
 	while(i.hasNext()){
 		i.next();
 		i.value()->setChecked(s->getBool("upgrades/"+i.key()));
 	}
+	credits = s->getInt("credits/count");
+}
+
+void ShopDialog::upgrade(QString propName){
+	s->setProp("upgrades/"+propName,1);
+	if(propName=="fontSize1")s->setProp("font/size",40);
+	if(propName=="fontSize2")s->setProp("font/size",20);
+	if(propName=="fontSize3")s->setProp("font/size",10);
+	if(propName=="wordSpacing")s->setProp("font/word_spacing",0);
+	if(propName=="fontFamily1")s->setProp("font/family","Arial");
+	if(propName=="fontFamily2")s->setProp("font/family","Courier");
+	if(propName=="contrast1")s->setProp("color/text","#333333");
+	if(propName=="contrast2")s->setProp("color/text","#666666");
+	if(propName=="contrast3")s->setProp("color/text","#ffffff");
+	if(propName=="keyboardInteraction")s->setProp("interaction/byKeyboard",1);
+	if(propName=="statusBar")s->setProp("statusbar/enabled",1);
+	if(propName=="lineNumber")s->setProp("statusbar/lineNumber",1);
+	if(propName=="columnNumber")s->setProp("statusbar/columnNumber",1);
+	if(propName=="credits")s->setProp("statusbar/credits",1);
 }
 
 QString ShopDialog::checkBoxToPropName(QCheckBox *checkBox){

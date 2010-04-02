@@ -24,6 +24,7 @@ protected:
     void changeEvent(QEvent *e);
 	void checkAvailability();
 	void reset();
+	void upgrade(QString propName);
 	QCheckBox* propNameToCheckBox(QString propName);
 	QString checkBoxToPropName(QCheckBox* checkBox);
 
