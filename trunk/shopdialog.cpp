@@ -23,6 +23,7 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	checkBoxes["columnNumber"]=ui->checkBoxColumnNumber;
 	checkBoxes["credits"]=ui->checkBoxCredits;
 	checkBoxes["paste"]=ui->checkBoxPaste;
+	checkBoxes["undoRedo"]=ui->checkBoxUndoRedo;
 
 	QMapIterator<QString, QCheckBox*> i(checkBoxes);
 	while(i.hasNext()){
@@ -44,6 +45,7 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	prices["columnNumber"]=1;
 	prices["credits"]=1;
 	prices["paste"]=1;
+	prices["undoRedo"]=1;
 
 	reqs["lineNumber"].push_back("statusBar");
 	reqs["columnNumber"].push_back("statusBar");
@@ -169,6 +171,7 @@ void ShopDialog::upgrade(QString propName){
 	if(propName=="columnNumber")s->setProp("statusbar/columnNumber",1);
 	if(propName=="credits")s->setProp("statusbar/credits",1);
 	if(propName=="paste")s->setProp("interaction/canPaste",1);
+	if(propName=="undoRedo")s->setProp("interaction/undoRedo",1);
 }
 
 QString ShopDialog::checkBoxToPropName(QCheckBox *checkBox){
