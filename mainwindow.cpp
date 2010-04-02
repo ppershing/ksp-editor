@@ -69,6 +69,7 @@ void MainWindow::help(){
 
 void MainWindow::reload(){
 	s->load();
+	ui->textEdit->s = s;
 
 	// FONT
 

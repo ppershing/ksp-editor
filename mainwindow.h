@@ -6,6 +6,7 @@
 #include "settings.h"
 #include "shopdialog.h"
 #include "kupondialog.h"
+#include "editor.h"
 
 namespace Ui {
     class MainWindow;
