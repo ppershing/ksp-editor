@@ -1,3 +1,4 @@
+#include <QDebug>
 #include "shopdialog.h"
 #include "ui_shopdialog.h"
 
@@ -67,6 +68,14 @@ void ShopDialog::show(){
 }
 
 void ShopDialog::reload(){
+	QString propClicked = "";
+	if(this->sender()){
+		propClicked = this->checkBoxToPropName((QCheckBox*)this->sender());
+	}
+	if(checkBoxes[propClicked]->isChecked())
+		credits -= prices[propClicked];
+	else
+		credits += prices[propClicked];
 	checkAvailability();
 }
 
