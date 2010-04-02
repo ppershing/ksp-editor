@@ -76,6 +76,7 @@ void ShopDialog::reload(){
 		credits -= prices[propClicked];
 	else
 		credits += prices[propClicked];
+	// credits sa upravuje len lokalne, aby sa upravilo availability, realne sa znizia credits az vo fcii accept
 	checkAvailability();
 }
 

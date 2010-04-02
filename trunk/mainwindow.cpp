@@ -73,33 +73,33 @@ void MainWindow::reload(){
 	// FONT
 
 	QFont f = ui->textEdit->document()->defaultFont();
-	f.setPointSize(s->getProp("font/size").toInt());
-	f.setWordSpacing(s->getProp("font/word_spacing").toInt());
-	f.setFamily(s->getProp("font/family").toString());
+	f.setPointSize(s->getInt("font/size"));
+	f.setWordSpacing(s->getInt("font/word_spacing"));
+	f.setFamily(s->getString("font/family"));
 	// tu sa doplnia dalsie nastavenia fontu
 	ui->textEdit->document()->setDefaultFont(f);
 
 	//INTERACTION
 
 	QFlags<Qt::TextInteractionFlag> flags = Qt::NoTextInteraction;
-	if(s->getProp("interaction/byMouse").toInt()==1)flags|=Qt::TextSelectableByMouse;
-	if(s->getProp("interaction/byKeyboard").toInt()==1)flags|=Qt::TextSelectableByKeyboard;
-	if(s->getProp("interaction/editable").toInt()==1)flags|=Qt::TextEditable;
+	if(s->getBool("interaction/byMouse"))flags|=Qt::TextSelectableByMouse;
+	if(s->getBool("interaction/byKeyboard"))flags|=Qt::TextSelectableByKeyboard;
+	if(s->getBool("interaction/editable"))flags|=Qt::TextEditable;
 	qDebug() << "flags: " << QString::number(flags);
 	ui->textEdit->setTextInteractionFlags(flags);
 
 	//COLORS
 
 	QString sheet = "QTextEdit {"
-		"background: "+s->getProp("color/background").toString()+";"
-		"color: "+s->getProp("color/text").toString()+";"
+		"background: "+s->getString("color/background")+";"
+		"color: "+s->getString("color/text")+";"
 		"}";
 	qApp->setStyleSheet(sheet);
 
 	//STATUSBAR
 
 	customResize();
-	updateStatus();
+	updateStatusBar();
 }
 
 void MainWindow::submit(){
@@ -111,16 +111,16 @@ void MainWindow::godmode(){
 }
 
 void MainWindow::positionChanged(){
-	updateStatus();
+	updateStatusBar();
 }
 
-void MainWindow::updateStatus(){
+void MainWindow::updateStatusBar(){
 	QString status="";
-	if(s->getProp("statusbar/lineNumber").toInt())
+	if(s->getBool("statusbar/lineNumber"))
 		status += "Line number: " + QString::number(ui->textEdit->textCursor().blockNumber()) + " ";
-	if(s->getProp("statusbar/columnNumber").toInt())
+	if(s->getBool("statusbar/columnNumber"))
 		status += "Column number: " + QString::number(ui->textEdit->textCursor().columnNumber()) + " ";
-	if(s->getProp("statusbar/credits").toInt())
-		status += "Number of credits: "+ QString::number(s->getProp("credits/count").toInt()) +" ";
+	if(s->getBool("statusbar/credits"))
+		status += "Number of credits: " + QString::number(s->getInt("credits/count")) + " ";
 	ui->label->setText(status);
 }

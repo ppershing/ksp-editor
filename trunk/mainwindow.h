@@ -27,7 +27,7 @@ protected:
     void changeEvent(QEvent *e);
 	void resizeEvent(QResizeEvent *e);
 	void customResize();
-	void updateStatus();
+	void updateStatusBar();
 	Settings* s;
 
 private:
