@@ -34,6 +34,7 @@ private:
 	int credits;
 	QMap<QString,QCheckBox*> checkBoxes;
 	QMap<QString,int> prices;
+	QMap<QString,QStringList> reqs;//list of prerequizities
 };
 
 #endif // SHOPDIALOG_H

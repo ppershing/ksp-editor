@@ -42,6 +42,18 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	prices["lineNumber"]=1;
 	prices["columnNumber"]=1;
 	prices["credits"]=1;
+
+	reqs["lineNumber"].push_back("statusBar");
+	reqs["columnNumber"].push_back("statusBar");
+	reqs["credits"].push_back("statusBar");
+	reqs["fontSize2"].push_back("fontSize1");
+	reqs["fontSize3"].push_back("fontSize1");
+	reqs["fontSize3"].push_back("fontSize2");
+	reqs["fontFamily2"].push_back("fontFamily1");
+	reqs["contrast2"].push_back("contrast1");
+	reqs["contrast3"].push_back("contrast1");
+	reqs["contrast3"].push_back("contrast2");
+
 }
 
 ShopDialog::~ShopDialog()
@@ -107,18 +119,24 @@ nezaskrtnute nemamNaTo nemamTo-DIS
 	QMapIterator<QString, QCheckBox*> i(checkBoxes);
 	while(i.hasNext()){
 		i.next();
-		if(i.value()->isChecked() && credits>=prices[i.key()] && s->getBool("upgrades/"+i.key()))
+		bool mamNaTo = bool(credits>=prices[i.key()]);
+		if(reqs.value(i.key()).count()>0){
+			foreach(QString req,reqs.value(i.key())){
+				mamNaTo &= (checkBoxes[req]->isChecked());
+			}
+		}
+		if(i.value()->isChecked() && mamNaTo && s->getBool("upgrades/"+i.key()))
 			i.value()->setEnabled(false);
-		if(i.value()->isChecked() && credits>=prices[i.key()] && !s->getBool("upgrades/"+i.key()))
+		if(i.value()->isChecked() && mamNaTo && !s->getBool("upgrades/"+i.key()))
 			i.value()->setEnabled(true);
-		if(i.value()->isChecked() && credits<prices[i.key()] && s->getBool("upgrades/"+i.key()))
+		if(i.value()->isChecked() && !mamNaTo && s->getBool("upgrades/"+i.key()))
 			i.value()->setEnabled(false);
-		if(i.value()->isChecked() && credits<prices[i.key()] && !s->getBool("upgrades/"+i.key()))
+		if(i.value()->isChecked() && !mamNaTo && !s->getBool("upgrades/"+i.key()))
 			i.value()->setEnabled(true);
 
-		if(!i.value()->isChecked() && credits>=prices[i.key()] && !s->getBool("upgrades/"+i.key()))
+		if(!i.value()->isChecked() && mamNaTo && !s->getBool("upgrades/"+i.key()))
 			i.value()->setEnabled(true);
-		if(!i.value()->isChecked() && credits<prices[i.key()] && !s->getBool("upgrades/"+i.key()))
+		if(!i.value()->isChecked() && !mamNaTo && !s->getBool("upgrades/"+i.key()))
 			i.value()->setEnabled(false);
 	}
 }
