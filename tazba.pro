@@ -7,11 +7,13 @@ SOURCES += main.cpp \
     mainwindow.cpp \
     settings.cpp \
     shopdialog.cpp \
-    kupondialog.cpp
+    kupondialog.cpp \
+    editor.cpp
 HEADERS += mainwindow.h \
     settings.h \
     shopdialog.h \
-    kupondialog.h
+    kupondialog.h \
+    editor.h
 FORMS += mainwindow.ui \
     shopdialog.ui \
     kupondialog.ui
