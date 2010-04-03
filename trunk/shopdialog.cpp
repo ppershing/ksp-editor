@@ -24,6 +24,7 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	checkBoxes["credits"]=ui->checkBoxCredits;
 	checkBoxes["paste"]=ui->checkBoxPaste;
 	checkBoxes["undoRedo"]=ui->checkBoxUndoRedo;
+	checkBoxes["backspace"]=ui->checkBoxBackspace;
 
 	QMapIterator<QString, QCheckBox*> i(checkBoxes);
 	while(i.hasNext()){
@@ -46,6 +47,7 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	prices["credits"]=1;
 	prices["paste"]=1;
 	prices["undoRedo"]=1;
+	prices["backspace"]=1;
 
 	reqs["lineNumber"].push_back("statusBar");
 	reqs["columnNumber"].push_back("statusBar");
@@ -172,6 +174,7 @@ void ShopDialog::upgrade(QString propName){
 	if(propName=="credits")s->setProp("statusbar/credits",1);
 	if(propName=="paste")s->setProp("interaction/canPaste",1);
 	if(propName=="undoRedo")s->setProp("interaction/undoRedo",1);
+	if(propName=="backspace")s->setProp("interaction/backspace",1);
 }
 
 QString ShopDialog::checkBoxToPropName(QCheckBox *checkBox){
