@@ -3,6 +3,7 @@
 
 #include <QTextEdit>
 #include <QMimeData>
+#include <QKeyEvent>
 #include "settings.h"
 
 class Editor : public QTextEdit
@@ -11,6 +12,7 @@ class Editor : public QTextEdit
 public:
 	Editor(QWidget* parent=0);
 	Settings* s;
+	void keyPressEvent(QKeyEvent *e);
 public slots:
 	void insertFromMimeData(const QMimeData *source);
 };
