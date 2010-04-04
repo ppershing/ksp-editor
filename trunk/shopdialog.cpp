@@ -116,7 +116,7 @@ void ShopDialog::checkAvailability(){
 	/*
 podla tabulky:
 zaskrtnute mamNaTo mamTo-------DIS
-zaskrtnute mamNaTo nemamTo-----OK
+zaskrtnute mamNaTo nemamTo-----OK (ale len ak to nie je req pre iny checknuty checkbox)
 zaskrtnute nemamNaTo mamTo-----DIS
 zaskrtnute nemamNaTo nemamTo---OK
 nezaskrtnute mamNaTo mamTo-----WTF
@@ -135,13 +135,17 @@ nezaskrtnute nemamNaTo nemamTo-DIS
 		}
 		if(i.value()->isChecked() && mamNaTo && s->getBool("upgrades/"+i.key()))
 			i.value()->setEnabled(false);
-		if(i.value()->isChecked() && mamNaTo && !s->getBool("upgrades/"+i.key()))
+		if(i.value()->isChecked() && !s->getBool("upgrades/"+i.key())){
 			i.value()->setEnabled(true);
+			QMapIterator<QString, QStringList> j(reqs);
+			while(j.hasNext()){
+				j.next();
+				if(j.value().contains(i.key()) && checkBoxes[j.key()]->isChecked())
+					i.value()->setEnabled(false);
+			}
+		}
 		if(i.value()->isChecked() && !mamNaTo && s->getBool("upgrades/"+i.key()))
 			i.value()->setEnabled(false);
-		if(i.value()->isChecked() && !mamNaTo && !s->getBool("upgrades/"+i.key()))
-			i.value()->setEnabled(true);
-
 		if(!i.value()->isChecked() && mamNaTo && !s->getBool("upgrades/"+i.key()))
 			i.value()->setEnabled(true);
 		if(!i.value()->isChecked() && !mamNaTo && !s->getBool("upgrades/"+i.key()))
