@@ -13,6 +13,7 @@ public:
 	Editor(QWidget* parent=0);
 	Settings* s;
 	void keyPressEvent(QKeyEvent *e);
+	void mousePressEvent(QMouseEvent *e);
 public slots:
 	void insertFromMimeData(const QMimeData *source);
 };

@@ -37,8 +37,8 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>291</width>
-     <height>221</height>
+     <width>303</width>
+     <height>226</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
@@ -49,17 +49,66 @@
       </property>
      </widget>
     </item>
-    <item row="9" column="0">
-     <widget class="QCheckBox" name="checkBoxFontFamily2">
-      <property name="text">
-       <string>Upgrade font family 2</string>
-      </property>
-     </widget>
-    </item>
     <item row="3" column="0">
      <widget class="QCheckBox" name="checkBoxFontSize2">
       <property name="text">
        <string>Decresase font size 2</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QCheckBox" name="checkBoxKeyboardNavigation">
+      <property name="text">
+       <string>Enable keyboard navigation</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QCheckBox" name="checkBoxStatusBar">
+      <property name="text">
+       <string>Show statusbar</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QCheckBox" name="checkBoxLineNumber">
+      <property name="text">
+       <string>Show line number</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QCheckBox" name="checkBoxColumnNumber">
+      <property name="text">
+       <string>Show ciolumn number</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="1">
+     <widget class="QCheckBox" name="checkBoxCredits">
+      <property name="text">
+       <string>Show number of credits</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="1">
+     <widget class="QCheckBox" name="checkBoxPaste">
+      <property name="text">
+       <string>Allow paste</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="1">
+     <widget class="QCheckBox" name="checkBoxUndoRedo">
+      <property name="text">
+       <string>Undo Redo</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QCheckBox" name="checkBoxMouseNavigation">
+      <property name="text">
+       <string>Enable mouse navigation</string>
       </property>
      </widget>
     </item>
@@ -84,13 +133,6 @@
       </property>
      </widget>
     </item>
-    <item row="8" column="0">
-     <widget class="QCheckBox" name="checkBoxFontFamily1">
-      <property name="text">
-       <string>Upgrade font family 1</string>
-      </property>
-     </widget>
-    </item>
     <item row="7" column="0">
      <widget class="QCheckBox" name="checkBoxContrast3">
       <property name="text">
@@ -98,63 +140,28 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="1">
+    <item row="8" column="0">
+     <widget class="QCheckBox" name="checkBoxFontFamily1">
+      <property name="text">
+       <string>Upgrade font family 1</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="0">
+     <widget class="QCheckBox" name="checkBoxFontFamily2">
+      <property name="text">
+       <string>Upgrade font family 2</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="0">
      <widget class="QCheckBox" name="checkBoxWordSpacing">
       <property name="text">
        <string>Decresase word spacing</string>
       </property>
      </widget>
     </item>
-    <item row="3" column="1">
-     <widget class="QCheckBox" name="checkBoxKeyboardNavigation">
-      <property name="text">
-       <string>Enable keyboard navigation</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="1">
-     <widget class="QCheckBox" name="checkBoxStatusBar">
-      <property name="text">
-       <string>Show statusbar</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="1">
-     <widget class="QCheckBox" name="checkBoxLineNumber">
-      <property name="text">
-       <string>Show line number</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="1">
-     <widget class="QCheckBox" name="checkBoxColumnNumber">
-      <property name="text">
-       <string>Show ciolumn number</string>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="1">
-     <widget class="QCheckBox" name="checkBoxCredits">
-      <property name="text">
-       <string>Show number of credits</string>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="1">
-     <widget class="QCheckBox" name="checkBoxPaste">
-      <property name="text">
-       <string>Allow paste</string>
-      </property>
-     </widget>
-    </item>
-    <item row="9" column="1">
-     <widget class="QCheckBox" name="checkBoxUndoRedo">
-      <property name="text">
-       <string>Undo Redo</string>
-      </property>
-     </widget>
-    </item>
-    <item row="10" column="0">
+    <item row="2" column="1">
      <widget class="QCheckBox" name="checkBoxBackspace">
       <property name="text">
        <string>Allow backspace</string>

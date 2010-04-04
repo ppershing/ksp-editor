@@ -18,6 +18,7 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	checkBoxes["contrast2"]=ui->checkBoxContrast2;
 	checkBoxes["contrast3"]=ui->checkBoxContrast3;
 	checkBoxes["keyboardInteraction"]=ui->checkBoxKeyboardNavigation;
+	checkBoxes["mouseInteraction"]=ui->checkBoxMouseNavigation;
 	checkBoxes["statusBar"]=ui->checkBoxStatusBar;
 	checkBoxes["lineNumber"]=ui->checkBoxLineNumber;
 	checkBoxes["columnNumber"]=ui->checkBoxColumnNumber;
@@ -41,6 +42,7 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	prices["contrast2"]=1;
 	prices["contrast3"]=1;
 	prices["keyboardInteraction"]=1;
+	prices["mouseInteraction"]=1;
 	prices["statusBar"]=1;
 	prices["lineNumber"]=1;
 	prices["columnNumber"]=1;
@@ -168,6 +170,7 @@ void ShopDialog::upgrade(QString propName){
 	if(propName=="contrast2")s->setProp("color/text","#666666");
 	if(propName=="contrast3")s->setProp("color/text","#ffffff");
 	if(propName=="keyboardInteraction")s->setProp("interaction/byKeyboard",1);
+	if(propName=="mouseInteraction")s->setProp("interaction/byMouse",1);
 	if(propName=="statusBar")s->setProp("statusbar/enabled",1);
 	if(propName=="lineNumber")s->setProp("statusbar/lineNumber",1);
 	if(propName=="columnNumber")s->setProp("statusbar/columnNumber",1);
