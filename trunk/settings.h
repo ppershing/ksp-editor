@@ -19,6 +19,7 @@ public:
 	  */
 	void toggle(QString propName);
 	void increment(QString propName,int value=1);
+	void decrement(QString propName,int value=1);
 private:
 	QSettings* s;
 	QMap<QString,QVariant> prop;

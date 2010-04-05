@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>309</width>
+    <width>466</width>
     <height>271</height>
    </rect>
   </property>
@@ -37,7 +37,7 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>303</width>
+     <width>441</width>
      <height>226</height>
     </rect>
    </property>
@@ -165,6 +165,34 @@
      <widget class="QCheckBox" name="checkBoxBackspace">
       <property name="text">
        <string>Allow backspace</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QCheckBox" name="checkBoxShowPrices">
+      <property name="text">
+       <string>Show prices</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2">
+     <widget class="QCheckBox" name="checkBoxCheaperKeystrokes1">
+      <property name="text">
+       <string>Cheaper keystrokes 1</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="2">
+     <widget class="QCheckBox" name="checkBoxCheaperKeystrokes2">
+      <property name="text">
+       <string>Cheaper keystrokes 2</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="2">
+     <widget class="QCheckBox" name="checkBoxReadOnly">
+      <property name="text">
+       <string>Read only</string>
       </property>
      </widget>
     </item>

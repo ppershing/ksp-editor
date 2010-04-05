@@ -26,41 +26,26 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	checkBoxes["paste"]=ui->checkBoxPaste;
 	checkBoxes["undoRedo"]=ui->checkBoxUndoRedo;
 	checkBoxes["backspace"]=ui->checkBoxBackspace;
+	checkBoxes["showPrices"]=ui->checkBoxShowPrices;
+	checkBoxes["cheaperKeystrokes1"]=ui->checkBoxCheaperKeystrokes1;
+	checkBoxes["cheaperKeystrokes2"]=ui->checkBoxCheaperKeystrokes2;
+	checkBoxes["readOnly"]=ui->checkBoxReadOnly;
 
 	QMapIterator<QString, QCheckBox*> i(checkBoxes);
 	while(i.hasNext()){
 		i.next();
 		connect(i.value(),SIGNAL(toggled(bool)),this,SLOT(reload()));
 	}
-	prices["fontSize1"]=1;
-	prices["fontSize2"]=1;
-	prices["fontSize3"]=1;
-	prices["wordSpacing"]=1;
-	prices["fontFamily1"]=1;
-	prices["fontFamily2"]=1;
-	prices["contrast1"]=1;
-	prices["contrast2"]=1;
-	prices["contrast3"]=1;
-	prices["keyboardInteraction"]=1;
-	prices["mouseInteraction"]=1;
-	prices["statusBar"]=1;
-	prices["lineNumber"]=1;
-	prices["columnNumber"]=1;
-	prices["credits"]=1;
-	prices["paste"]=1;
-	prices["undoRedo"]=1;
-	prices["backspace"]=1;
 
-	reqs["lineNumber"].push_back("statusBar");
-	reqs["columnNumber"].push_back("statusBar");
-	reqs["credits"].push_back("statusBar");
-	reqs["fontSize2"].push_back("fontSize1");
-	reqs["fontSize3"].push_back("fontSize1");
-	reqs["fontSize3"].push_back("fontSize2");
-	reqs["fontFamily2"].push_back("fontFamily1");
-	reqs["contrast2"].push_back("contrast1");
-	reqs["contrast3"].push_back("contrast1");
-	reqs["contrast3"].push_back("contrast2");
+	reqs["lineNumber"] << "statusBar";
+	reqs["columnNumber"] << "statusBar";
+	reqs["credits"] << "statusBar";
+	reqs["fontSize2"] << "fontSize1";
+	reqs["fontSize3"] << "fontSize1" << "fontSize2";
+	reqs["fontFamily2"] << "fontFamily1";
+	reqs["contrast2"] << "contrast1";
+	reqs["contrast3"] << "contrast1" << "contrast2";
+	reqs["cheaperKeystrokes2"] << "cheaperKeystrokes1";
 
 }
 
@@ -93,9 +78,9 @@ void ShopDialog::reload(){
 		propClicked = this->checkBoxToPropName((QCheckBox*)this->sender());
 	}
 	if(checkBoxes[propClicked]->isChecked())
-		credits -= prices[propClicked];
+		credits -= s->getInt("prices/"+propClicked);
 	else
-		credits += prices[propClicked];
+		credits += s->getInt("prices/"+propClicked);
 	// credits sa upravuje len lokalne, aby sa upravilo availability, realne sa znizia credits az vo fcii accept
 	checkAvailability();
 }
@@ -127,7 +112,7 @@ nezaskrtnute nemamNaTo nemamTo-DIS
 	QMapIterator<QString, QCheckBox*> i(checkBoxes);
 	while(i.hasNext()){
 		i.next();
-		bool mamNaTo = bool(credits>=prices[i.key()]);
+		bool mamNaTo = bool(credits>=s->getInt("prices/"+i.key()));
 		if(reqs.value(i.key()).count()>0){
 			foreach(QString req,reqs.value(i.key())){
 				mamNaTo &= (checkBoxes[req]->isChecked());
@@ -182,6 +167,18 @@ void ShopDialog::upgrade(QString propName){
 	if(propName=="paste")s->setProp("interaction/canPaste",1);
 	if(propName=="undoRedo")s->setProp("interaction/undoRedo",1);
 	if(propName=="backspace")s->setProp("interaction/backspace",1);
+	if(propName=="showPrices"){
+		s->setProp("shopping/showPrices",1);
+		QMapIterator<QString, QCheckBox*> i(checkBoxes);
+		while(i.hasNext()){
+			i.next();
+			i.value()->setText(i.value()->text() + " (" + QString::number(s->getInt("prices/"+i.key())) + ")");
+		}
+	}
+	if(propName=="cheaperKeystrokes1")s->setProp("prices/keyStroke",1);
+	if(propName=="cheaperKeystrokes2")s->setProp("prices/keyStroke",0);
+	if(propName=="readOnly")s->setProp("interaction/editable",0);
+
 }
 
 QString ShopDialog::checkBoxToPropName(QCheckBox *checkBox){

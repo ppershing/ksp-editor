@@ -35,3 +35,7 @@ void Settings::toggle(QString propName){
 void Settings::increment(QString propName, int value){
 	setProp(propName,getProp(propName,"0").toInt()+value);
 }
+
+void Settings::decrement(QString propName, int value){
+	increment(propName,-value);
+}

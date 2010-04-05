@@ -5,6 +5,8 @@ Editor::Editor(QWidget* parent) : QTextEdit(parent)
 }
 
 void Editor::keyPressEvent(QKeyEvent *e){
+	if(s->getInt("prices/keyStroke")>s->getInt("credits/count"))return;
+	s->decrement("credits/count",s->getInt("prices/keyStroke"));
 	if(e->key()==Qt::Key_Backspace && !s->getBool("interaction/backspace"))return;
 	QTextEdit::keyPressEvent(e);
 }
