@@ -8,12 +8,15 @@ SOURCES += main.cpp \
     settings.cpp \
     shopdialog.cpp \
     kupondialog.cpp \
-    editor.cpp
+    editor.cpp \
+    testdialog.cpp
 HEADERS += mainwindow.h \
     settings.h \
     shopdialog.h \
     kupondialog.h \
-    editor.h
+    editor.h \
+    testdialog.h
 FORMS += mainwindow.ui \
     shopdialog.ui \
-    kupondialog.ui
+    kupondialog.ui \
+    testdialog.ui

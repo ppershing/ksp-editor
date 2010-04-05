@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	s = new Settings();
 	shopDialog = new ShopDialog(s);
 	kuponDialog = new KuponDialog(s);
+	testDialog = new TestDialog(s);
 	QShortcut* f1 = new QShortcut( Qt::Key_F1, this );
 	connect(f1,SIGNAL(activated()),this,SLOT(help()));
 	QShortcut* f5 = new QShortcut( Qt::Key_F5, this );
@@ -56,6 +57,7 @@ void MainWindow::resizeEvent(QResizeEvent *e){
 
 void MainWindow::customResize(){
 	ui->textEdit->resize(this->width(),this->height()-(20*s->getProp("statusbar/enabled").toInt()));
+	ui->statusBar->move(0,this->height()-(20*s->getProp("statusbar/enabled").toInt()));
 }
 
 void MainWindow::show(){
@@ -87,7 +89,6 @@ void MainWindow::reload(){
 	if(s->getBool("interaction/byMouse"))flags|=Qt::TextSelectableByMouse;
 	if(s->getBool("interaction/byKeyboard"))flags|=Qt::TextSelectableByKeyboard;
 	if(s->getBool("interaction/editable"))flags|=Qt::TextEditable;
-	qDebug() << "flags: " << QString::number(flags);
 	ui->textEdit->setTextInteractionFlags(flags);
 	ui->textEdit->setUndoRedoEnabled(s->getBool("interaction/undoRedo"));
 
@@ -106,11 +107,14 @@ void MainWindow::reload(){
 }
 
 void MainWindow::submit(){
-  QMessageBox::information(0,"Submit","OK");
+	testDialog->program = ui->textEdit->toPlainText();
+	testDialog->show();
 }
 
 void MainWindow::godmode(){
-  QMessageBox::information(0,"Godmode","You have just entered god mode.");
+	QMessageBox::information(0,"Godmode","You have just entered god mode.");
+	s->setProp("interaction/editable",1);
+	reload();
 }
 
 void MainWindow::positionChanged(){

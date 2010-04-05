@@ -3,9 +3,11 @@
 
 #include <QMainWindow>
 #include <QDebug>
+#include <QProcess>
 #include "settings.h"
 #include "shopdialog.h"
 #include "kupondialog.h"
+#include "testdialog.h"
 #include "editor.h"
 
 namespace Ui {
@@ -35,6 +37,7 @@ private:
     Ui::MainWindow *ui;
 	ShopDialog* shopDialog;
 	KuponDialog* kuponDialog;
+	TestDialog* testDialog;
 };
 
 #endif // MAINWINDOW_H
