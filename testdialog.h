@@ -31,6 +31,9 @@ private:
     Ui::TestDialog *ui;
 	Settings* s;
 	QProcess* testProcess;
+
+private slots:
+	void on_pushButton_clicked();
 };
 
 #endif // TESTDIALOG_H

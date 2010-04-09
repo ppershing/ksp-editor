@@ -17,18 +17,7 @@ TestDialog::~TestDialog()
 
 void TestDialog::show(){
 	ui->textBrowser->clear();
-	ui->textBrowser->append("testing...");
 	QDialog::show();
-	testProcess = new QProcess();
-	connect(testProcess,SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(testFinished(int,QProcess::ExitStatus)));
-	connect(testProcess,SIGNAL(error(QProcess::ProcessError)),this,SLOT(error(QProcess::ProcessError)));
-	QFile file("file.cpp");
-	if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
-		ui->textBrowser->append("problem with creating temporary file");
-	file.write(program.toAscii());
-	file.close();
-	testProcess->setStandardInputFile("file.cpp");
-	testProcess->start(s->getString("paths/testovac"), QStringList());
 }
 
 void TestDialog::error(QProcess::ProcessError e){
@@ -55,4 +44,19 @@ void TestDialog::changeEvent(QEvent *e)
     default:
         break;
     }
+}
+
+void TestDialog::on_pushButton_clicked()
+{
+	ui->textBrowser->append(QString::number(ui->spinBox->value())+" testing...");
+	testProcess = new QProcess();
+	connect(testProcess,SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(testFinished(int,QProcess::ExitStatus)));
+	connect(testProcess,SIGNAL(error(QProcess::ProcessError)),this,SLOT(error(QProcess::ProcessError)));
+	QFile file("file.cpp");
+	if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+		ui->textBrowser->append("problem with creating temporary file");
+	file.write(program.toAscii());
+	file.close();
+	testProcess->setStandardInputFile("file.cpp");
+	testProcess->start(s->getString("paths/testovac"), QStringList());
 }
