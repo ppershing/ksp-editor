@@ -116,7 +116,6 @@ void Testovac::read_from_file(const char * filename, vector<string> *lines) {
     ifstream s(filename);
     char buf[1000];
     assert(lines != NULL);
-    lines->clear();
     while (!s.eof()) {
         s.getline(buf, 999);
         assert(!s.fail() || s.eof());
@@ -148,15 +147,23 @@ int Testovac::test_on_input(vector<string> &program,
     string test_in = get_sandbox_dir()+"/test.in";
     write_to_file(test_in.c_str(), input);
     string test_out = get_sandbox_dir()+"/test.out";
+    string test_log = get_sandbox_dir()+"/test.log";
 
-    string testcmd = "cd "+get_sandbox_dir()+" && ./wrapper -a0 -ff";
+    string testcmd = "cd "+get_sandbox_dir()+" && ./wrapper -a0 -f";
     testcmd += " -m"+inttostr(test_settings.memory_limit);
     testcmd += " -t"+inttostr(test_settings.time_limit);
     testcmd += " -itest.in -otest.out";
     testcmd += " ./program &>test.log";
     int retval;
     retval = system(testcmd.c_str());
+    test_output->push_back("<p><font color='yellow'> Tester log: </font>");
+    test_output->push_back("<pre>");
+    read_from_file(test_log.c_str(), test_output);
+    test_output->push_back("</pre>");
+    test_output->push_back("<font color='yellow'> Your program output: </font>");
+    test_output->push_back("<pre>");
     read_from_file(test_out.c_str(), test_output);
+    test_output->push_back("</pre></p>");
     return retval;
     // }}}
 }
@@ -175,7 +182,7 @@ int Testovac::submit_solution(const char* taskname,
     Testovac::copy_test_data(taskname);
 
     int retval;
-    string wrapper_args = " -m"+inttostr(test_settings.memory_limit);
+    string wrapper_args = " -a0 -f -m"+inttostr(test_settings.memory_limit);
     wrapper_args += " -t"+inttostr(test_settings.time_limit);
     string command = "cd " + get_sandbox_dir() + " && ./test.sh ";
     if (test_settings.full_test_log) command += " --fulllog";
