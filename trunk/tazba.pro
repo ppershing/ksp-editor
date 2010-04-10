@@ -9,13 +9,15 @@ SOURCES += main.cpp \
     shopdialog.cpp \
     kupondialog.cpp \
     editor.cpp \
-    testdialog.cpp
+    testdialog.cpp \
+    testovac/testovac.cpp
 HEADERS += mainwindow.h \
     settings.h \
     shopdialog.h \
     kupondialog.h \
     editor.h \
-    testdialog.h
+    testdialog.h \
+    testovac/testovac.h
 FORMS += mainwindow.ui \
     shopdialog.ui \
     kupondialog.ui \
