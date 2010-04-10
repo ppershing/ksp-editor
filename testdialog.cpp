@@ -51,7 +51,7 @@ std::vector<std::string> TestDialog::fromQStringList(QStringList s){
 QStringList TestDialog::toQStringList(std::vector<std::string> s){
 	QStringList qs;
 	for(int i=0;i<(int)s.size();i++){
-		qs.push_back(QString::fromStdString(s[i]));
+		qs.push_back(QString::fromUtf8(s[i].c_str()));
 	}
 	return qs;
 }
