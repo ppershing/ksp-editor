@@ -12,6 +12,8 @@ MainWindow::MainWindow(QWidget *parent) :
 	shopDialog = new ShopDialog(s);
 	kuponDialog = new KuponDialog(s);
 	testDialog = new TestDialog(s);
+	QShortcut* ctrln = new QShortcut( QKeySequence(Qt::CTRL + Qt::Key_N), this );
+	connect(ctrln,SIGNAL(activated()),this,SLOT(clearText()));
 	QShortcut* f1 = new QShortcut( Qt::Key_F1, this );
 	connect(f1,SIGNAL(activated()),this,SLOT(help()));
 	QShortcut* f5 = new QShortcut( Qt::Key_F5, this );
@@ -119,6 +121,10 @@ void MainWindow::godmode(){
 
 void MainWindow::positionChanged(){
 	updateStatusBar();
+}
+
+void MainWindow::clearText(){
+	ui->textEdit->clear();
 }
 
 void MainWindow::updateStatusBar(){
