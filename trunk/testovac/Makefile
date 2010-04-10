@@ -3,4 +3,4 @@ run: test
 	./test
 
 test: *.h *.cpp
-	g++ -W -Wall test.cpp testovac_dummy.cpp -o test
+	g++ -W -Wall test.cpp testovac.cpp -o test

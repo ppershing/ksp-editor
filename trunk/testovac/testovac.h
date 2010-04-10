@@ -14,6 +14,7 @@ class TestSettings {
 public:
     int memory_limit; // in kB
     int time_limit; // in msec
+    int full_test_log; // if enabled, in the diffs will appear in test log
 };
 
 class Testovac {

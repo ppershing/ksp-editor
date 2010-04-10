@@ -175,8 +175,9 @@ int Testovac::submit_solution(const char* taskname,
     int retval;
     string wrapper_args = " -m"+inttostr(test_settings.memory_limit);
     wrapper_args += " -t"+inttostr(test_settings.time_limit);
-    string command = "cd " + get_sandbox_dir() + " && ./test.sh " +
-        wrapper_args + "&> test.log";
+    string command = "cd " + get_sandbox_dir() + " && ./test.sh ";
+    if (test_settings.full_test_log) command += " --fulllog";
+    command += wrapper_args + "&> test.log";
     string logfile = get_sandbox_dir()+"/test.log";
     retval = system(command.c_str());
     read_from_file(logfile.c_str(), test_log);
@@ -194,10 +195,12 @@ vector<string> Testovac::get_task_description(const char* taskname) {
 }
 
 vector<string> Testovac::get_task_list() {
+// {{{
     string tmpfile = get_sandbox_dir()+"/task.lst";
     string cmd = "ls " + get_tasks_dir()+" &>"+tmpfile;
     assert(system(cmd.c_str())==0);
     vector<string> result;
     read_from_file(tmpfile.c_str(), &result);
     return result;
+// }}}
 }

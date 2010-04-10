@@ -1,4 +1,5 @@
 #include "testovac.h"
+#include <stdio.h>
 
 int main() {
     Testovac::initialize(".");
@@ -17,7 +18,7 @@ int main() {
     }
 
     vector<string> desc;
-    desc = Testovac::get_task_description("sucet");
+    desc = Testovac::get_task_description("01_sucet");
     printf("zadanie ulohy:\n");
     for (int i=0; i<(int)desc.size(); i++) {
         printf("%s\n", desc[i].c_str());
@@ -29,13 +30,14 @@ int main() {
 
     test_settings.memory_limit = 1000;
     test_settings.time_limit = 1000;
+    test_settings.full_test_log = 1;
 
     program.push_back("#include <stdio.h>");
     program.push_back("int main() {");
     program.push_back(" int nepouzivana;");
     program.push_back(" int a,b;");
     program.push_back(" scanf(\"%d %d\", &a,&b);");
-    program.push_back(" printf(\"%d\\n\", a+b);");
+    program.push_back(" printf(\"x%d\\n\", a+b);");
     program.push_back("}");
 /*    program.push_back("var nepouzivana,cislo: integer;");
     program.push_back("begin");    
@@ -45,7 +47,7 @@ int main() {
     program.push_back("end.");*/
 
 
-    int retval = Testovac::submit_solution("sucet", program,
+    int retval = Testovac::submit_solution("01_sucet", program,
             compile_settings,test_settings,
             &compile_output, &output);
 
