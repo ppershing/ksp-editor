@@ -33,6 +33,7 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	checkBoxes["saveOnSubmit"]=ui->checkBoxSaveOnSubmit;
 	checkBoxes["showCompilationStatus"]=ui->checkBoxShowCompilationStatus;
 	checkBoxes["showCompilationWarnings"]=ui->checkBoxShowCompilationWarnings;
+	checkBoxes["compileOnly"]=ui->checkBoxCompileOnly;
 
 	QMapIterator<QString, QCheckBox*> i(checkBoxes);
 	while(i.hasNext()){
@@ -50,6 +51,7 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	reqs["contrast3"] << "contrast1" << "contrast2";
 	reqs["cheaperKeystrokes2"] << "cheaperKeystrokes1";
 	reqs["showCompilationWarnings"] << "showCompilationStatus";
+	reqs["compileOnly"] << "showCompilationStatus";
 
 }
 
