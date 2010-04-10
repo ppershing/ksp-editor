@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>181</width>
-    <height>139</height>
+    <width>276</width>
+    <height>240</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,8 +18,8 @@
     <rect>
      <x>0</x>
      <y>30</y>
-     <width>181</width>
-     <height>111</height>
+     <width>281</width>
+     <height>211</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -39,7 +39,7 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>181</width>
+     <width>271</width>
      <height>31</height>
     </rect>
    </property>
@@ -48,6 +48,9 @@ p, li { white-space: pre-wrap; }
      <widget class="QLabel" name="label">
       <property name="text">
        <string>jazyk:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
       </property>
      </widget>
     </item>
