@@ -53,14 +53,15 @@ QStringList TestDialog::toQStringList(std::vector<std::string> s){
 void TestDialog::on_pushButton_clicked()
 {
 	ui->textBrowser->clear();
+	compile_output.clear();
+	output.clear();
 	ui->textBrowser->append(" testing...");
 
 	compile_settings.compiler = CompileSettings::COMPILER_CPP;
-	compile_settings.compile_with_warnings = 0;
+	compile_settings.compile_with_warnings = s->getInt("upgrades/showCompilationWarnings");
 
 	test_settings.memory_limit = 1000;
 	test_settings.time_limit = 1000;
-
 
 	prog = fromQStringList(program.split("\n"));
 

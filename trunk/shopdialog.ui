@@ -791,7 +791,7 @@
       <string>Show compilation status</string>
      </property>
     </widget>
-    <widget class="QCheckBox" name="checkBox_2">
+    <widget class="QCheckBox" name="checkBoxShowCompilationWarnings">
      <property name="geometry">
       <rect>
        <x>140</x>
@@ -942,7 +942,7 @@
     <zorder>line_19</zorder>
     <zorder>line_6</zorder>
     <zorder>checkBoxShowCompilationStatus</zorder>
-    <zorder>checkBox_2</zorder>
+    <zorder>checkBoxShowCompilationWarnings</zorder>
     <zorder>checkBox_3</zorder>
     <zorder>checkBox_4</zorder>
     <zorder>editor_3</zorder>
