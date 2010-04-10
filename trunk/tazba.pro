@@ -10,7 +10,7 @@ SOURCES += main.cpp \
     kupondialog.cpp \
     editor.cpp \
     testdialog.cpp \
-    testovac/testovac.cpp
+    testovac/testovac_dummy.cpp
 HEADERS += mainwindow.h \
     settings.h \
     shopdialog.h \

@@ -30,6 +30,7 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	checkBoxes["cheaperKeystrokes1"]=ui->checkBoxCheaperKeystrokes1;
 	checkBoxes["cheaperKeystrokes2"]=ui->checkBoxCheaperKeystrokes2;
 	checkBoxes["readOnly"]=ui->checkBoxReadOnly;
+	checkBoxes["saveOnSubmit"]=ui->checkBoxSaveOnSubmit;
 
 	QMapIterator<QString, QCheckBox*> i(checkBoxes);
 	while(i.hasNext()){
