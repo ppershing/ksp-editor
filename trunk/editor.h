@@ -1,6 +1,7 @@
 #ifndef EDITOR_H
 #define EDITOR_H
 
+#include <QPlainTextEdit>
 #include <QTextEdit>
 #include <QMimeData>
 #include <QKeyEvent>
@@ -18,6 +19,15 @@ public:
 	void mousePressEvent(QMouseEvent *e);
 public slots:
 	void insertFromMimeData(const QMimeData *source);
+};
+
+class InputEditor : public QPlainTextEdit
+{
+	Q_OBJECT
+public:
+	InputEditor(QWidget* parent=0);
+	QMimeData* createMimeDataFromSelection() const;
+
 };
 
 #endif // EDITOR_H

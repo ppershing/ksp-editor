@@ -11,7 +11,9 @@ TestDialog::TestDialog(Settings* settings, QWidget *parent) :
 	tasklist = toQStringList(Testovac::get_task_list());
 	for(int i=0;i<tasklist.size();i++)
 		taskDescriptions.push_back(toQStringList(Testovac::get_task_description(tasklist.at(i).toStdString().c_str())).join("\n"));
-	tasklist.push_back("Uz si spravil vsetky ulohy.");
+
+	tasklist.push_back("Už si spravil všetky ulohy.");
+	taskDescriptions.push_back("Už si spravil všetky ulohy.");
 	currentTask = 0;
 }
 
@@ -64,7 +66,7 @@ void TestDialog::on_pushButton_clicked()
 
 	if(currentTask>=tasklist.size()-1)return;
 
-	compile_settings.compiler = CompileSettings::COMPILER_CPP;
+	compile_settings.compiler = (ui->comboBox->currentText()=="cpp")?CompileSettings::COMPILER_CPP:CompileSettings::COMPILER_PAS;
 	compile_settings.compile_with_warnings = s->getInt("upgrades/showCompilationWarnings");
 
 	test_settings.memory_limit = 1000;
@@ -73,31 +75,48 @@ void TestDialog::on_pushButton_clicked()
 
 	prog = fromQStringList(program.split("\n"));
 
+	// COMPILE ONLY
+
 	if(ui->radioButtonCompileOnly->isChecked()){
 		ui->textBrowser->append("COMPILING...");
 		int retval = Testovac::compile(prog,compile_settings,&compile_output);
 		ui->textBrowser->append((retval==0)?"OK":"FAILED");
 		return;
 	}
-	ui->textBrowser->append("SUBMITTING...");
-	emit submitting();
-	int retval = Testovac::submit_solution(tasklist.at(currentTask).toAscii(),prog,compile_settings,test_settings,&compile_output,&output);
-	ui->textBrowser->append(retval==0?"PASSED":"FAILED");
-	if(s->getBool("upgrades/showCompilationStatus")){
-		ui->textBrowser->append("compile: "+toQStringList(compile_output).join("\n"));
-	}
-	if(ui->radioButtonCompileOnly->isChecked())return;
-	if(s->getBool("upgrades/showLog")){
-		ui->textBrowser->append("LOG:");
-		ui->textBrowser->append(toQStringList(output).join("\n"));
+
+	// SUBMIT
+
+	if(ui->radioButtonSubmit->isChecked()){
+		ui->textBrowser->append("SUBMITTING...");
+		emit submitting();
+		int retval = Testovac::submit_solution(tasklist.at(currentTask).toAscii(),prog,compile_settings,test_settings,&compile_output,&output);
+		ui->textBrowser->append(retval==0?"PASSED":"FAILED");
+		if(s->getBool("upgrades/showCompilationStatus")){
+			ui->textBrowser->append("------------------");
+			ui->textBrowser->append("COMPILATION OUTPUT: "+toQStringList(compile_output).join("\n"));
+		}
+		if(s->getBool("upgrades/showLog")){
+			ui->textBrowser->append("------------------");
+			ui->textBrowser->append("TEST LOG:");
+			ui->textBrowser->append(toQStringList(output).join("\n"));
+		}
+
+		if(retval==0){
+			qDebug() << currentTask << ": OK";
+			currentTask++;
+			if(currentTask==tasklist.size()-1)
+				qDebug() << "HOTOVO";
+
+		}
+		return;
 	}
 
-	if(retval==0){
-		qDebug() << currentTask << ": OK";
-		currentTask++;
-		if(currentTask==tasklist.size()-1)
-			qDebug() << "HOTOVO";
+	// MANUAL TEST
 
+	if(ui->radioButtonManualTest->isChecked()){
+		ui->textBrowser->append("MANUAL TESTING...");
+		ui->textBrowser->append("NOT IMPLEMENTED");
+		return;
 	}
 }
 
@@ -105,7 +124,11 @@ void TestDialog::on_radioButtonManualTest_toggled(bool checked)
 {
 	if(checked){
 		this->resize(this->width()+300,this->height());
+		ui->plainTextEdit->move(ui->textBrowser->x()+ui->textBrowser->width(),ui->textBrowser->y());
+		ui->plainTextEdit->resize(300,ui->textBrowser->height());
 	}else{
 		this->resize(this->width()-300,this->height());
+		ui->plainTextEdit->move(0,0);
+		ui->plainTextEdit->resize(0,0);
 	}
 }
