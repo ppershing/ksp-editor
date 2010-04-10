@@ -7,7 +7,9 @@ TestDialog::TestDialog(Settings* settings, QWidget *parent) :
 {
     ui->setupUi(this);
 	s = settings;
-	Testovac::initialize("testovac/");
+	Testovac::initialize("testovac");
+	tasklist = toQStringList(Testovac::get_task_list());
+	currentTask = 0;
 }
 
 TestDialog::~TestDialog()
@@ -60,14 +62,7 @@ void TestDialog::on_pushButton_clicked()
 	test_settings.time_limit = 1000;
 
 
-	std::vector<std::string> prog = fromQStringList(program.split("\n"));
-	std::vector<std::string> output;
-	std::vector<std::string> compile_output;
-	std::vector<std::string> input;
-	std::vector<std::string> task_list;
-
-
-
+	prog = fromQStringList(program.split("\n"));
 
 	int retval = Testovac::submit_solution("sucet",prog,compile_settings,test_settings,&compile_output,&output);
 	ui->textBrowser->append(retval==0?"OK":"WRONG");
@@ -75,4 +70,12 @@ void TestDialog::on_pushButton_clicked()
 		ui->textBrowser->append("compile: "+toQStringList(compile_output).join("\n"));
 	}
 	//ui->textBrowser->append("output: "+toQStringList(output).join("\n"));
+
+	if(retval==0){
+		qDebug() << currentTask << ": OK";
+		currentTask++;
+		if(currentTask==tasklist.size())
+			qDebug() << "HOTOVO";
+
+	}
 }

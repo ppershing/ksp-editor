@@ -22,6 +22,13 @@ public:
 	std::vector<std::string> fromQStringList(QStringList s);
 	QStringList toQStringList(std::vector<std::string> s);
 
+	std::vector<std::string> prog;
+	std::vector<std::string> output;
+	std::vector<std::string> compile_output;
+	std::vector<std::string> input;
+	QStringList tasklist;
+	int currentTask;
+
 public slots:
 	void show();
 
