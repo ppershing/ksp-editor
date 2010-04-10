@@ -1,2 +1,6 @@
-Na vstupe sú 2 čísla N,M.
-Vypíšte jeden riadok a na ňom číslo N+M.
+<html>
+<h1> Úloha: dva a dva je tri </h1>
+
+Na vstupe sú 2 čísla <i>-1000000000 < n,m < 1000000000 </i>.
+Vypíšte jeden riadok a na ňom číslo jediné číslo <i>n+m</i>.
+
