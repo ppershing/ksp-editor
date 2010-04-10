@@ -89,4 +89,6 @@ public:
             TestSettings& test_settings,
             vector<string> *compile_output,
             vector<string> *test_log);
+
+    static vector<string> get_task_list();
 };

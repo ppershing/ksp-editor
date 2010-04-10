@@ -8,6 +8,13 @@ int main() {
     vector<string> output;
     vector<string> compile_output;
     vector<string> input;
+    vector<string> tasklist;
+
+    tasklist = Testovac::get_task_list();
+    printf("Mozes submitovat nasledujuce ulohy:\n");
+    for (int i=0; i<(int)tasklist.size(); i++) {
+        printf("%s\n", tasklist[i].c_str());
+    }
 
     vector<string> desc;
     desc = Testovac::get_task_description("sucet");

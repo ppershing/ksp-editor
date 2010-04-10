@@ -192,3 +192,12 @@ vector<string> Testovac::get_task_description(const char* taskname) {
     return result;
     // }}}
 }
+
+vector<string> Testovac::get_task_list() {
+    string tmpfile = get_sandbox_dir()+"/task.lst";
+    string cmd = "ls " + get_tasks_dir()+" &>"+tmpfile;
+    assert(system(cmd.c_str())==0);
+    vector<string> result;
+    read_from_file(tmpfile.c_str(), &result);
+    return result;
+}
