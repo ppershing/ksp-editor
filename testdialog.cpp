@@ -9,6 +9,8 @@ TestDialog::TestDialog(Settings* settings, QWidget *parent) :
 	s = settings;
 	Testovac::initialize("testovac");
 	tasklist = toQStringList(Testovac::get_task_list());
+	for(int i=0;i<tasklist.size();i++)
+		taskDescriptions.push_back(toQStringList(Testovac::get_task_description(tasklist.at(i).toAscii())).join("\n"));
 	tasklist.push_back("Uz si spravil vsetky ulohy.");
 	currentTask = 0;
 }
@@ -67,7 +69,7 @@ void TestDialog::on_pushButton_clicked()
 
 	test_settings.memory_limit = 1000;
 	test_settings.time_limit = 1000;
-	test_settings.full_test_log = s->getInt("upgrades/fullLog");
+	test_settings.full_test_log = s->getInt("upgrades/showFullLog");
 
 	prog = fromQStringList(program.split("\n"));
 
@@ -85,7 +87,10 @@ void TestDialog::on_pushButton_clicked()
 		ui->textBrowser->append("compile: "+toQStringList(compile_output).join("\n"));
 	}
 	if(ui->radioButtonCompileOnly->isChecked())return;
-	//ui->textBrowser->append("output: "+toQStringList(output).join("\n"));
+	if(s->getBool("upgrades/showLog")){
+		ui->textBrowser->append("LOG:");
+		ui->textBrowser->append(toQStringList(output).join("\n"));
+	}
 
 	if(retval==0){
 		qDebug() << currentTask << ": OK";

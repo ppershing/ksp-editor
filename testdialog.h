@@ -27,6 +27,7 @@ public:
 	std::vector<std::string> compile_output;
 	std::vector<std::string> input;
 	QStringList tasklist;
+	QStringList taskDescriptions;
 	int currentTask;
 
 public slots:

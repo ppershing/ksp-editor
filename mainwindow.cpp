@@ -68,7 +68,7 @@ void MainWindow::customResize(){
 	ui->textEdit->resize(this->width(),this->height()-(20*s->getInt("statusbar/enabled"))-(100*s->getInt("upgrades/showTaskDescription")));
 	ui->textEdit->move(0,100*s->getInt("upgrades/showTaskDescription"));
 	ui->textBrowser->resize(this->width(),100*s->getInt("upgrades/showTaskDescription"));
-	ui->textBrowser->setHtml(testDialog->tasklist.at(testDialog->currentTask));
+	ui->textBrowser->setHtml(testDialog->taskDescriptions.at(testDialog->currentTask));
 	ui->statusBar->move(0,this->height()-(20*s->getInt("statusbar/enabled")));
 }
 
