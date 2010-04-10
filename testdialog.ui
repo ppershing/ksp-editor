@@ -61,6 +61,9 @@ p, li { white-space: pre-wrap; }
         <property name="text">
          <string>Compile only</string>
         </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
@@ -110,7 +113,7 @@ p, li { white-space: pre-wrap; }
          </sizepolicy>
         </property>
         <property name="text">
-         <string>test</string>
+         <string>Do it!</string>
         </property>
        </widget>
       </item>
