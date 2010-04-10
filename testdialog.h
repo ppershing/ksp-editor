@@ -46,7 +46,8 @@ private:
 
 
 private slots:
-	void on_pushButton_clicked();
+	void on_radioButtonManualTest_toggled(bool checked);
+ void on_pushButton_clicked();
 };
 
 #endif // TESTDIALOG_H

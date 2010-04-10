@@ -88,3 +88,12 @@ void TestDialog::on_pushButton_clicked()
 
 	}
 }
+
+void TestDialog::on_radioButtonManualTest_toggled(bool checked)
+{
+	if(checked){
+		this->resize(this->width()+300,this->height());
+	}else{
+		this->resize(this->width()-300,this->height());
+	}
+}
