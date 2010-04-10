@@ -59,10 +59,8 @@ void TestDialog::on_pushButton_clicked()
 	ui->textBrowser->clear();
 	compile_output.clear();
 	output.clear();
-	emit submitting();
 
 	if(currentTask>=tasklist.size()-1)return;
-	ui->textBrowser->append(" testing...");
 
 	compile_settings.compiler = CompileSettings::COMPILER_CPP;
 	compile_settings.compile_with_warnings = s->getInt("upgrades/showCompilationWarnings");
@@ -73,11 +71,20 @@ void TestDialog::on_pushButton_clicked()
 
 	prog = fromQStringList(program.split("\n"));
 
+	if(ui->radioButtonCompileOnly->isChecked()){
+		ui->textBrowser->append("COMPILING...");
+		int retval = Testovac::compile(prog,compile_settings,&compile_output);
+		ui->textBrowser->append((retval==0)?"OK":"FAILED");
+		return;
+	}
+	ui->textBrowser->append("SUBMITTING...");
+	emit submitting();
 	int retval = Testovac::submit_solution(tasklist.at(currentTask).toAscii(),prog,compile_settings,test_settings,&compile_output,&output);
 	ui->textBrowser->append(retval==0?"PASSED":"FAILED");
 	if(s->getBool("upgrades/showCompilationStatus")){
 		ui->textBrowser->append("compile: "+toQStringList(compile_output).join("\n"));
 	}
+	if(ui->radioButtonCompileOnly->isChecked())return;
 	//ui->textBrowser->append("output: "+toQStringList(output).join("\n"));
 
 	if(retval==0){

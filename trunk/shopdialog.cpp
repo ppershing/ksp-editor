@@ -35,7 +35,8 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	checkBoxes["showCompilationWarnings"]=ui->checkBoxShowCompilationWarnings;
 	checkBoxes["compileOnly"]=ui->checkBoxCompileOnly;
 	checkBoxes["manualTest"]=ui->checkBoxManualTest;
-	checkBoxes["fullLog"]=ui->checkBoxFullLog;
+	checkBoxes["showLog"]=ui->checkBoxShowLog;
+	checkBoxes["showFullLog"]=ui->checkBoxFullLog;
 	checkBoxes["showTaskDescription"]=ui->checkBoxShowProblemStatement;
 
 	QMapIterator<QString, QCheckBox*> i(checkBoxes);
@@ -56,7 +57,8 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	reqs["showCompilationWarnings"] << "showCompilationStatus";
 	reqs["compileOnly"] << "showCompilationStatus";
 	reqs["manualTest"] << "compileOnly";
-	reqs["fullLog"] << "manualTest";
+	reqs["showLog"] << "manualTest";
+	reqs["showFullLog"] << "showLog";
 
 }
 
