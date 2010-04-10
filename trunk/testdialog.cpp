@@ -65,8 +65,8 @@ void TestDialog::on_pushButton_clicked()
 
 	prog = fromQStringList(program.split("\n"));
 
-	int retval = Testovac::submit_solution("sucet",prog,compile_settings,test_settings,&compile_output,&output);
-	ui->textBrowser->append(retval==0?"OK":"WRONG");
+	int retval = Testovac::submit_solution(tasklist.at(currentTask).toAscii(),prog,compile_settings,test_settings,&compile_output,&output);
+	ui->textBrowser->append(retval==0?"PASSED":"FAILED");
 	if(s->getBool("upgrades/showCompilationStatus")){
 		ui->textBrowser->append("compile: "+toQStringList(compile_output).join("\n"));
 	}
