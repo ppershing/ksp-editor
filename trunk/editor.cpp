@@ -28,4 +28,7 @@ InputEditor::InputEditor(QWidget *parent) : QPlainTextEdit(parent)
 
 
 QMimeData* InputEditor::createMimeDataFromSelection() const{
+	QMimeData* m = new QMimeData();
+	m->text() = "";
+	return m;
 }
