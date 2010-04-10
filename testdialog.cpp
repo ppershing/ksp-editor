@@ -92,12 +92,13 @@ void TestDialog::on_pushButton_clicked()
 		int retval = Testovac::submit_solution(tasklist.at(currentTask).toAscii(),prog,compile_settings,test_settings,&compile_output,&output);
 		ui->textBrowser->append(retval==0?"PASSED":"FAILED");
 		if(s->getBool("upgrades/showCompilationStatus")){
-			ui->textBrowser->append("------------------");
-			ui->textBrowser->append("COMPILATION OUTPUT: "+toQStringList(compile_output).join("\n"));
+			ui->textBrowser->append("");
+			ui->textBrowser->append("<hr>COMPILATION OUTPUT: ");
+			ui->textBrowser->append(toQStringList(compile_output).join("\n"));
 		}
 		if(s->getBool("upgrades/showLog")){
-			ui->textBrowser->append("------------------");
-			ui->textBrowser->append("TEST LOG:");
+			ui->textBrowser->append("");
+			ui->textBrowser->append("<hr>TEST LOG:");
 			ui->textBrowser->append(toQStringList(output).join("\n"));
 		}
 
@@ -115,7 +116,19 @@ void TestDialog::on_pushButton_clicked()
 
 	if(ui->radioButtonManualTest->isChecked()){
 		ui->textBrowser->append("MANUAL TESTING...");
-		ui->textBrowser->append("NOT IMPLEMENTED");
+		std::vector<std::string> input = fromQStringList(ui->plainTextEdit->toPlainText().split("\n"));
+		int retval = Testovac::test_on_input(prog,input,compile_settings,test_settings,&compile_output,&output);
+		ui->textBrowser->append(retval==0?"OK":"WRONG");
+		if(s->getBool("upgrades/showCompilationStatus")){
+			ui->textBrowser->append("");
+			ui->textBrowser->append("<hr>COMPILATION OUTPUT: ");
+			ui->textBrowser->append(toQStringList(compile_output).join("\n"));
+		}
+		if(s->getBool("upgrades/showLog")){
+			ui->textBrowser->append("");
+			ui->textBrowser->append("<hr>TEST LOG:");
+			ui->textBrowser->append(toQStringList(output).join("\n"));
+		}
 		return;
 	}
 }
