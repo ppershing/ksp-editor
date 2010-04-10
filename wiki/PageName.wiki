@@ -1,7 +1,0 @@
-#summary Stanoviská na získavanie kreditov.
-
-= Stanoviská =
-Bude ich 5 alebo 6:
-  * Obehnutie okolo chaty. Zisk: 30k.
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
