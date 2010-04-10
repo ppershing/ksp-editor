@@ -119,6 +119,7 @@ void Testovac::read_from_file(const char * filename, vector<string> *lines) {
     lines->clear();
     while (!s.eof()) {
         s.getline(buf, 999);
+        assert(!s.fail());
         lines->push_back(string(buf));
     }
     // }}}
