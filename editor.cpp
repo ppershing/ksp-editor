@@ -21,3 +21,11 @@ void Editor::insertFromMimeData(const QMimeData *source){
 	if(s->getBool("interaction/canPaste"))
 		QTextEdit::insertFromMimeData(source);
 }
+
+InputEditor::InputEditor(QWidget *parent) : QPlainTextEdit(parent)
+{
+}
+
+
+QMimeData* InputEditor::createMimeDataFromSelection() const{
+}
