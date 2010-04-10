@@ -25,6 +25,7 @@ public slots:
 	void help();
 	void reload();
 	void submit();
+	void submitFinished();
 	void godmode();
 	void positionChanged();
 	void clearText();
@@ -41,7 +42,7 @@ private:
 	ShopDialog* shopDialog;
 	KuponDialog* kuponDialog;
 	TestDialog* testDialog;
-	QTime lastEditTime;
+	QTimer* idleTimer;
 };
 
 #endif // MAINWINDOW_H
