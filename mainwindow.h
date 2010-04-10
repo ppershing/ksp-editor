@@ -26,6 +26,7 @@ public slots:
 	void submit();
 	void godmode();
 	void positionChanged();
+	void clearText();
 protected:
     void changeEvent(QEvent *e);
 	void resizeEvent(QResizeEvent *e);
