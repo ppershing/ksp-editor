@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	connect(f5,SIGNAL(activated()),this,SLOT(reload()));
 	QShortcut* f6 = new QShortcut( Qt::Key_F6, this );
 	connect(f6,SIGNAL(activated()),this,SLOT(submit()));
+	connect(testDialog,SIGNAL(finished(int)),this,SLOT(submitFinished()));
 	QShortcut* f7 = new QShortcut( Qt::Key_F7, this );
 	connect(f7,SIGNAL(activated()),shopDialog,SLOT(show()));
 	connect(shopDialog,SIGNAL(accepted()),this,SLOT(reload()));
@@ -31,10 +32,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
 	connect(ui->textEdit,SIGNAL(cursorPositionChanged()),this,SLOT(positionChanged()));
 
-	QTimer* t = new QTimer();
-	t->setInterval(2000);
-	connect(t, SIGNAL(timeout()), this, SLOT(checkIdle()));
-	t->start();
+	idleTimer = new QTimer();
+	idleTimer->setInterval(2000);
+	connect(idleTimer, SIGNAL(timeout()), this, SLOT(checkIdle()));
+	idleTimer->start();
 
 }
 
@@ -70,7 +71,7 @@ void MainWindow::customResize(){
 }
 
 void MainWindow::checkIdle(){
-	if(ui->textEdit->lastEditTime.elapsed()>=10000){
+	if(ui->textEdit->lastEditTime.elapsed()>=10000 && ui->textEdit->hasFocus()){
 		QString text = ui->textEdit->document()->toPlainText();
 		if(text.length()==0)return;
 		int charToDelete = rand()%text.length();
@@ -126,10 +127,15 @@ void MainWindow::reload(){
 }
 
 void MainWindow::submit(){
+	idleTimer->stop();
 	testDialog->program = ui->textEdit->toPlainText();
-	if(!s->getBool("upgrades/saveOnSubmit"))
-		ui->textEdit->clear();
 	testDialog->show();
+}
+
+void MainWindow::submitFinished(){
+	if(!s->getBool("upgrades/saveOnSubmit"))
+		clearText();
+	idleTimer->start();
 }
 
 void MainWindow::godmode(){
