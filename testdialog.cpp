@@ -138,9 +138,11 @@ void TestDialog::on_radioButtonManualTest_toggled(bool checked)
 		this->resize(this->width()+300,this->height());
 		ui->plainTextEdit->move(ui->textBrowser->x()+ui->textBrowser->width(),ui->textBrowser->y());
 		ui->plainTextEdit->resize(300,ui->textBrowser->height());
+		ui->label_2->move(ui->textBrowser->width()+20,5);
+		ui->label_2->resize(71,16);
 	}else{
 		this->resize(this->width()-300,this->height());
-		ui->plainTextEdit->move(0,0);
 		ui->plainTextEdit->resize(0,0);
+		ui->label_2->resize(0,0);
 	}
 }
