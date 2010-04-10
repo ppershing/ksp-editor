@@ -166,14 +166,11 @@ void ShopDialog::upgrade(QString propName){
 	if(propName=="contrast1")s->setProp("color/text","#333333");
 	if(propName=="contrast2")s->setProp("color/text","#666666");
 	if(propName=="contrast3")s->setProp("color/text","#ffffff");
-	if(propName=="keyboardInteraction")s->setProp("interaction/byKeyboard",1);
-	if(propName=="mouseInteraction")s->setProp("interaction/byMouse",1);
 	if(propName=="statusBar")s->setProp("statusbar/enabled",1);
 	if(propName=="lineNumber")s->setProp("statusbar/lineNumber",1);
 	if(propName=="columnNumber")s->setProp("statusbar/columnNumber",1);
 	if(propName=="credits")s->setProp("statusbar/credits",1);
 	if(propName=="paste")s->setProp("interaction/canPaste",1);
-	if(propName=="undoRedo")s->setProp("interaction/undoRedo",1);
 	if(propName=="backspace")s->setProp("interaction/backspace",1);
 	if(propName=="showPrices"){
 		s->setProp("shopping/showPrices",1);
@@ -185,8 +182,6 @@ void ShopDialog::upgrade(QString propName){
 	}
 	if(propName=="cheaperKeystrokes1")s->setProp("prices/keyStroke",1);
 	if(propName=="cheaperKeystrokes2")s->setProp("prices/keyStroke",0);
-	if(propName=="readOnly")s->setProp("interaction/editable",0);
-
 }
 
 QString ShopDialog::checkBoxToPropName(QCheckBox *checkBox){
