@@ -24,7 +24,6 @@ TestDialog::~TestDialog()
 
 void TestDialog::show(){
 	ui->textBrowser->clear();
-	ui->radioButtonSubmit->setChecked(true);
 	ui->radioButtonCompileOnly->setEnabled(s->getBool("upgrades/compileOnly"));
 	ui->radioButtonManualTest->setEnabled(s->getBool("upgrades/manualTest"));
 	QDialog::show();
