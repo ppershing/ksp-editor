@@ -1,4 +1,4 @@
-#include "testovac.cpp"
+#include "testovac.h"
 
 int main() {
     Testovac::initialize(".");
