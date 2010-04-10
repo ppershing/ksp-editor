@@ -9,6 +9,7 @@ void Editor::keyPressEvent(QKeyEvent *e){
 	s->decrement("credits/count",s->getInt("prices/keyStroke"));
 	if(e->key()==Qt::Key_Backspace && !s->getBool("interaction/backspace"))return;
 	QTextEdit::keyPressEvent(e);
+	lastEditTime = QTime::currentTime();
 }
 
 void Editor::mousePressEvent(QMouseEvent *e){

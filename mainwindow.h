@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QDebug>
 #include <QProcess>
+#include <QTimer>
 #include "settings.h"
 #include "shopdialog.h"
 #include "kupondialog.h"
@@ -27,6 +28,7 @@ public slots:
 	void godmode();
 	void positionChanged();
 	void clearText();
+	void checkIdle();
 protected:
     void changeEvent(QEvent *e);
 	void resizeEvent(QResizeEvent *e);
@@ -39,6 +41,7 @@ private:
 	ShopDialog* shopDialog;
 	KuponDialog* kuponDialog;
 	TestDialog* testDialog;
+	QTime lastEditTime;
 };
 
 #endif // MAINWINDOW_H

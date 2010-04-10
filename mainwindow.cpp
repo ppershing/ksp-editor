@@ -31,6 +31,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
 	connect(ui->textEdit,SIGNAL(cursorPositionChanged()),this,SLOT(positionChanged()));
 
+	QTimer* t = new QTimer();
+	t->setInterval(2000);
+	connect(t, SIGNAL(timeout()), this, SLOT(checkIdle()));
+	t->start();
+
 }
 
 MainWindow::~MainWindow()
@@ -62,6 +67,17 @@ void MainWindow::customResize(){
 	ui->textEdit->move(0,100*s->getInt("upgrades/showTaskDescription"));
 	ui->textBrowser->resize(this->width(),100*s->getInt("upgrades/showTaskDescription"));
 	ui->statusBar->move(0,this->height()-(20*s->getInt("statusbar/enabled")));
+}
+
+void MainWindow::checkIdle(){
+	if(ui->textEdit->lastEditTime.elapsed()>=10000){
+		QString text = ui->textEdit->document()->toPlainText();
+		if(text.length()==0)return;
+		int charToDelete = rand()%text.length();
+		text.remove(charToDelete,1);
+		ui->textEdit->document()->setPlainText(text);
+
+	}
 }
 
 void MainWindow::show(){

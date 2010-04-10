@@ -4,6 +4,7 @@
 #include <QTextEdit>
 #include <QMimeData>
 #include <QKeyEvent>
+#include <QTime>
 #include "settings.h"
 
 class Editor : public QTextEdit
@@ -12,6 +13,7 @@ class Editor : public QTextEdit
 public:
 	Editor(QWidget* parent=0);
 	Settings* s;
+	QTime lastEditTime;
 	void keyPressEvent(QKeyEvent *e);
 	void mousePressEvent(QMouseEvent *e);
 public slots:
