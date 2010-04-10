@@ -936,18 +936,32 @@
       <enum>Qt::Vertical</enum>
      </property>
     </widget>
-    <zorder>line_19</zorder>
-    <zorder>line_6</zorder>
-    <zorder>checkBoxShowCompilationStatus</zorder>
-    <zorder>checkBoxShowCompilationWarnings</zorder>
-    <zorder>checkBoxCompileOnly</zorder>
-    <zorder>checkBoxManualTest</zorder>
-    <zorder>editor_3</zorder>
-    <zorder>line_17</zorder>
-    <zorder>line_18</zorder>
-    <zorder>checkBoxSaveOnSubmit</zorder>
-    <zorder>line_20</zorder>
-    <zorder>line_22</zorder>
+    <widget class="QCheckBox" name="checkBoxFullLog">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>250</y>
+       <width>81</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Show full log</string>
+     </property>
+    </widget>
+    <widget class="Line" name="line_15">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>230</y>
+       <width>20</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_3">
     <attribute name="title">

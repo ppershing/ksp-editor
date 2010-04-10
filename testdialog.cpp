@@ -66,6 +66,7 @@ void TestDialog::on_pushButton_clicked()
 
 	test_settings.memory_limit = 1000;
 	test_settings.time_limit = 1000;
+	test_settings.full_test_log = s->getInt("upgrades/fullLog");
 
 	prog = fromQStringList(program.split("\n"));
 
