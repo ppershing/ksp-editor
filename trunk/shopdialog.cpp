@@ -36,6 +36,7 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	checkBoxes["compileOnly"]=ui->checkBoxCompileOnly;
 	checkBoxes["manualTest"]=ui->checkBoxManualTest;
 	checkBoxes["fullLog"]=ui->checkBoxFullLog;
+	checkBoxes["showTaskDescription"]=ui->checkBoxShowProblemStatement;
 
 	QMapIterator<QString, QCheckBox*> i(checkBoxes);
 	while(i.hasNext()){

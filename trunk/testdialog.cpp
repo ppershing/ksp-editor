@@ -9,6 +9,7 @@ TestDialog::TestDialog(Settings* settings, QWidget *parent) :
 	s = settings;
 	Testovac::initialize("testovac");
 	tasklist = toQStringList(Testovac::get_task_list());
+	tasklist.push_back("Uz si spravil vsetky ulohy.");
 	currentTask = 0;
 }
 
@@ -58,8 +59,10 @@ void TestDialog::on_pushButton_clicked()
 	ui->textBrowser->clear();
 	compile_output.clear();
 	output.clear();
-	ui->textBrowser->append(" testing...");
 	emit submitting();
+
+	if(currentTask>=tasklist.size()-1)return;
+	ui->textBrowser->append(" testing...");
 
 	compile_settings.compiler = CompileSettings::COMPILER_CPP;
 	compile_settings.compile_with_warnings = s->getInt("upgrades/showCompilationWarnings");
@@ -80,7 +83,7 @@ void TestDialog::on_pushButton_clicked()
 	if(retval==0){
 		qDebug() << currentTask << ": OK";
 		currentTask++;
-		if(currentTask==tasklist.size())
+		if(currentTask==tasklist.size()-1)
 			qDebug() << "HOTOVO";
 
 	}
