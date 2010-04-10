@@ -2,9 +2,10 @@
 #define TESTDIALOG_H
 
 #include <QDialog>
-#include <QProcess>
-#include <QFile>
 #include <QDebug>
+#include <vector>
+#include <string>
+#include "testovac/testovac.h"
 #include "settings.h"
 
 namespace Ui {
@@ -18,11 +19,10 @@ public:
     ~TestDialog();
 
 	QString program;
+	std::vector<std::string> fromQStringList(QStringList s);
 
 public slots:
 	void show();
-	void error(QProcess::ProcessError e);
-	void testFinished(int exitCode,QProcess::ExitStatus exitStatus);
 
 protected:
     void changeEvent(QEvent *e);
@@ -30,7 +30,9 @@ protected:
 private:
     Ui::TestDialog *ui;
 	Settings* s;
-	QProcess* testProcess;
+	CompileSettings compile_settings;
+	TestSettings test_settings;
+
 
 private slots:
 	void on_pushButton_clicked();
