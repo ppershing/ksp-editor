@@ -17,6 +17,7 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	checkBoxes["contrast1"]=ui->checkBoxContrast1;
 	checkBoxes["contrast2"]=ui->checkBoxContrast2;
 	checkBoxes["contrast3"]=ui->checkBoxContrast3;
+	checkBoxes["pageUpDown"]=ui->checkBoxPageUpDown;
 	checkBoxes["keyboardInteraction"]=ui->checkBoxKeyboardNavigation;
 	checkBoxes["mouseInteraction"]=ui->checkBoxMouseNavigation;
 	checkBoxes["statusBar"]=ui->checkBoxStatusBar;
@@ -59,6 +60,7 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	reqs["manualTest"] << "compileOnly";
 	reqs["showLog"] << "manualTest";
 	reqs["showFullLog"] << "showLog";
+	reqs["keyboardInteraction"] << "pageUpDown";
 
 }
 
@@ -90,6 +92,7 @@ void ShopDialog::reload(){
 	if(this->sender()){
 		propClicked = this->checkBoxToPropName((QCheckBox*)this->sender());
 	}
+	if(!checkBoxes.keys().contains(propClicked))qDebug("Zle priradenie checkboxu");
 	if(checkBoxes[propClicked]->isChecked())
 		credits -= s->getInt("prices/"+propClicked);
 	else
@@ -175,8 +178,6 @@ void ShopDialog::upgrade(QString propName){
 	if(propName=="lineNumber")s->setProp("statusbar/lineNumber",1);
 	if(propName=="columnNumber")s->setProp("statusbar/columnNumber",1);
 	if(propName=="credits")s->setProp("statusbar/credits",1);
-	if(propName=="paste")s->setProp("interaction/canPaste",1);
-	if(propName=="backspace")s->setProp("interaction/backspace",1);
 	if(propName=="showPrices"){
 		s->setProp("shopping/showPrices",1);
 		QMapIterator<QString, QCheckBox*> i(checkBoxes);

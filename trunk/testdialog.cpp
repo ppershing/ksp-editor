@@ -118,7 +118,7 @@ void TestDialog::on_pushButton_clicked()
 		ui->textBrowser->append("MANUAL TESTING...");
 		std::vector<std::string> input = fromQStringList(ui->plainTextEdit->toPlainText().split("\n"));
 		int retval = Testovac::test_on_input(prog,input,compile_settings,test_settings,&compile_output,&output);
-		ui->textBrowser->append(retval==0?"OK":"WRONG");
+		if(retval!=0)ui->textBrowser->append("FAILED TO RUN");
 		if(s->getBool("upgrades/showCompilationStatus")){
 			ui->textBrowser->append("");
 			ui->textBrowser->append("<hr>COMPILATION OUTPUT: ");

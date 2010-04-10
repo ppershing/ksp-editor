@@ -38,6 +38,11 @@ MainWindow::MainWindow(QWidget *parent) :
 	connect(idleTimer, SIGNAL(timeout()), this, SLOT(checkIdle()));
 	idleTimer->start();
 
+	generalTimer = new QTimer();
+	generalTimer->setInterval(1000);
+	connect(generalTimer,SIGNAL(timeout()),this,SLOT(generalTimeout()));
+	generalTimer->start();
+
 }
 
 MainWindow::~MainWindow()
@@ -80,6 +85,10 @@ void MainWindow::checkIdle(){
 		text.remove(charToDelete,1);
 		ui->textEdit->document()->setPlainText(text);
 	}
+}
+
+void MainWindow::generalTimeout(){
+
 }
 
 void MainWindow::show(){

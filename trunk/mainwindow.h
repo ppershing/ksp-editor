@@ -31,6 +31,7 @@ public slots:
 	void positionChanged();
 	void clearText();
 	void checkIdle();
+	void generalTimeout();
 protected:
     void changeEvent(QEvent *e);
 	void resizeEvent(QResizeEvent *e);
@@ -44,6 +45,7 @@ private:
 	KuponDialog* kuponDialog;
 	TestDialog* testDialog;
 	QTimer* idleTimer;
+	QTimer* generalTimer;
 };
 
 #endif // MAINWINDOW_H
