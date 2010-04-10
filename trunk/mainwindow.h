@@ -25,6 +25,7 @@ public slots:
 	void help();
 	void reload();
 	void submit();
+	void submitting();
 	void submitFinished();
 	void godmode();
 	void positionChanged();

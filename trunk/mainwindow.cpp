@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	connect(f5,SIGNAL(activated()),this,SLOT(reload()));
 	QShortcut* f6 = new QShortcut( Qt::Key_F6, this );
 	connect(f6,SIGNAL(activated()),this,SLOT(submit()));
+	connect(testDialog,SIGNAL(submitting()),this,SLOT(submitting()));
 	connect(testDialog,SIGNAL(finished(int)),this,SLOT(submitFinished()));
 	QShortcut* f7 = new QShortcut( Qt::Key_F7, this );
 	connect(f7,SIGNAL(activated()),shopDialog,SLOT(show()));
@@ -133,9 +134,12 @@ void MainWindow::submit(){
 	testDialog->show();
 }
 
-void MainWindow::submitFinished(){
+void MainWindow::submitting(){
 	if(!s->getBool("upgrades/saveOnSubmit"))
 		clearText();
+}
+
+void MainWindow::submitFinished(){
 	idleTimer->start();
 	reload();
 }

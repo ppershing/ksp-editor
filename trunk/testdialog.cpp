@@ -36,7 +36,7 @@ void TestDialog::changeEvent(QEvent *e)
 std::vector<std::string> TestDialog::fromQStringList(QStringList s){
 	std::vector<QString> vqs = s.toVector().toStdVector();
 	std::vector<std::string> vs;
-	for(int i=0;i<vqs.size();i++){
+	for(int i=0;i<(int)vqs.size();i++){
 		vs.push_back(vqs[i].toStdString());
 	}
 	return vs;
@@ -56,6 +56,7 @@ void TestDialog::on_pushButton_clicked()
 	compile_output.clear();
 	output.clear();
 	ui->textBrowser->append(" testing...");
+	emit submitting();
 
 	compile_settings.compiler = CompileSettings::COMPILER_CPP;
 	compile_settings.compile_with_warnings = s->getInt("upgrades/showCompilationWarnings");

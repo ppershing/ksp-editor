@@ -35,6 +35,9 @@ public slots:
 protected:
     void changeEvent(QEvent *e);
 
+signals:
+	void submitting();
+
 private:
     Ui::TestDialog *ui;
 	Settings* s;
