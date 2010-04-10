@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Submit</string>
   </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
   <widget class="QTextBrowser" name="textBrowser">
    <property name="geometry">
     <rect>
