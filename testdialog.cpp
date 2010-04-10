@@ -50,6 +50,7 @@ QStringList TestDialog::toQStringList(std::vector<std::string> s){
 
 void TestDialog::on_pushButton_clicked()
 {
+	ui->textBrowser->clear();
 	ui->textBrowser->append(" testing...");
 
 	compile_settings.compiler = CompileSettings::COMPILER_CPP;
@@ -69,8 +70,9 @@ void TestDialog::on_pushButton_clicked()
 
 
 	int retval = Testovac::submit_solution("sucet",prog,compile_settings,test_settings,&compile_output,&output);
-
-	ui->textBrowser->append("retval: "+QString::number(retval));
-	ui->textBrowser->append("compile: "+toQStringList(compile_output).join("\n"));
-	ui->textBrowser->append("output: "+toQStringList(output).join("\n"));
+	ui->textBrowser->append(retval==0?"OK":"WRONG");
+	if(s->getBool("upgrades/showCompilationStatus")){
+		ui->textBrowser->append("compile: "+toQStringList(compile_output).join("\n"));
+	}
+	//ui->textBrowser->append("output: "+toQStringList(output).join("\n"));
 }
