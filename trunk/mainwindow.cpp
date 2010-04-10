@@ -58,8 +58,10 @@ void MainWindow::resizeEvent(QResizeEvent *e){
 }
 
 void MainWindow::customResize(){
-	ui->textEdit->resize(this->width(),this->height()-(20*s->getProp("statusbar/enabled").toInt()));
-	ui->statusBar->move(0,this->height()-(20*s->getProp("statusbar/enabled").toInt()));
+	ui->textEdit->resize(this->width(),this->height()-(20*s->getInt("statusbar/enabled"))-(100*s->getInt("upgrades/showTaskDescription")));
+	ui->textEdit->move(0,100*s->getInt("upgrades/showTaskDescription"));
+	ui->textBrowser->resize(this->width(),100*s->getInt("upgrades/showTaskDescription"));
+	ui->statusBar->move(0,this->height()-(20*s->getInt("statusbar/enabled")));
 }
 
 void MainWindow::show(){
