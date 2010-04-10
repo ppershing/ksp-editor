@@ -76,7 +76,6 @@ void MainWindow::checkIdle(){
 		int charToDelete = rand()%text.length();
 		text.remove(charToDelete,1);
 		ui->textEdit->document()->setPlainText(text);
-
 	}
 }
 
@@ -128,6 +127,8 @@ void MainWindow::reload(){
 
 void MainWindow::submit(){
 	testDialog->program = ui->textEdit->toPlainText();
+	if(!s->getBool("upgrades/saveOnSubmit"))
+		ui->textEdit->clear();
 	testDialog->show();
 }
 

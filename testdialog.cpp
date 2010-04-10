@@ -40,6 +40,14 @@ std::vector<std::string> TestDialog::fromQStringList(QStringList s){
 	return vs;
 }
 
+QStringList TestDialog::toQStringList(std::vector<std::string> s){
+	QStringList qs;
+	for(int i=0;i<(int)s.size();i++){
+		qs.push_back(QString::fromStdString(s[i]));
+	}
+	return qs;
+}
+
 void TestDialog::on_pushButton_clicked()
 {
 	ui->textBrowser->append(" testing...");
@@ -61,4 +69,8 @@ void TestDialog::on_pushButton_clicked()
 
 
 	int retval = Testovac::submit_solution("sucet",prog,compile_settings,test_settings,&compile_output,&output);
+
+	ui->textBrowser->append("retval: "+QString::number(retval));
+	ui->textBrowser->append("compile: "+toQStringList(compile_output).join("\n"));
+	ui->textBrowser->append("output: "+toQStringList(output).join("\n"));
 }

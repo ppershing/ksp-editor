@@ -20,6 +20,7 @@ public:
 
 	QString program;
 	std::vector<std::string> fromQStringList(QStringList s);
+	QStringList toQStringList(std::vector<std::string> s);
 
 public slots:
 	void show();
