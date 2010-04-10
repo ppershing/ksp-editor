@@ -10,7 +10,7 @@ TestDialog::TestDialog(Settings* settings, QWidget *parent) :
 	Testovac::initialize("testovac");
 	tasklist = toQStringList(Testovac::get_task_list());
 	for(int i=0;i<tasklist.size();i++)
-		taskDescriptions.push_back(toQStringList(Testovac::get_task_description(tasklist.at(i).toAscii())).join("\n"));
+		taskDescriptions.push_back(toQStringList(Testovac::get_task_description(tasklist.at(i).toStdString().c_str())).join("\n"));
 	tasklist.push_back("Uz si spravil vsetky ulohy.");
 	currentTask = 0;
 }
