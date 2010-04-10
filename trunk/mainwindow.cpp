@@ -108,11 +108,11 @@ void MainWindow::reload(){
 	//INTERACTION
 
 	QFlags<Qt::TextInteractionFlag> flags = Qt::NoTextInteraction;
-	if(s->getBool("interaction/byMouse"))flags|=Qt::TextSelectableByMouse;
-	if(s->getBool("interaction/byKeyboard"))flags|=Qt::TextSelectableByKeyboard;
-	if(s->getBool("interaction/editable"))flags|=Qt::TextEditable;
+	if(s->getBool("upgrades/mouseInteraction"))flags|=Qt::TextSelectableByMouse;
+	if(s->getBool("upgrades/keyboardInteraction"))flags|=Qt::TextSelectableByKeyboard;
+	if(!s->getBool("upgrades/readOnly"))flags|=Qt::TextEditable;
 	ui->textEdit->setTextInteractionFlags(flags);
-	ui->textEdit->setUndoRedoEnabled(s->getBool("interaction/undoRedo"));
+	ui->textEdit->setUndoRedoEnabled(s->getBool("upgrades/undoRedo"));
 
 	//COLORS
 
