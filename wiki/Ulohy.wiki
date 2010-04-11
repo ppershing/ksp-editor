@@ -27,11 +27,11 @@ Na vstupe je string s, vypiste znak, ktory sa v s vyskytuje najcastejsie.
 
 Na vstupe je int n,string s, vypiste vsetky znaky v s, ktore sa tam nachadzaju aspon n krat.
 
-Na vstupe je string s, vypiste s sprava dolava.
+_Na vstupe je string s, vypiste s sprava dolava._
 
 Na vstupe je string s,p, vypiste pocet vyskytov p v s.
 
-Na vstup je int n, potom n intov k, vypiste median.
+_Na vstup je int n, potom n intov k, vypiste median._
 
 Na vstup je int n, m, potom m intov k, vypiste ci existuju dva, ktorych rozdiel je n.
 
