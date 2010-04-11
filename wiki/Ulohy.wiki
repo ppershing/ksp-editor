@@ -7,15 +7,15 @@ Tu budu ulohy, ktore budu riesit. Mali by byt zoradene od najlahsej po najtazsiu
 
 = Details =
 
-Spravte lubovolny program, ktory sa da skompilovat.
+_Spravte lubovolny program, ktory sa da skompilovat._
 
-Spravte program, ktory vypise 0.
+_Spravte program, ktory vypise 0._
 
-Spravte program, ktory vypise "Hello world!".
+_Spravte program, ktory vypise "Hello world!"._
 
-Spravte program, ktory vypise prirodzene cisla od 22 po 88 oddelene medzerou.
+_Spravte program, ktory vypise prirodzene cisla od 22 po 88 oddelene medzerou._
 
-Na vstupe je int n, vypiste sucet cisel od 1 po n.
+_Na vstupe je int n, vypiste sucet cisel od 1 po n._
 
 Na vstupe je int n, k, vypiste pocet cifier n v k-ckovej sustave, alebo 0, ak neexistuje.
 
