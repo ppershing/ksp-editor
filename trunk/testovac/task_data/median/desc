@@ -1,0 +1,6 @@
+<html>
+<h1> Úloha: Stredný prvok. </h1>
+Na vstupe je na prvom riadku dané číslo 0 &lt; N &lt; MAXINT.
+Na druhom riadku sa nachádza N čísiel 0 &lt; x<sub>i</sub> &lt; MAXINT.
+Vašou úlohou je vypísať medián.
+V prípade párneho počtu prvkov je to ten vpravo od stredu.
