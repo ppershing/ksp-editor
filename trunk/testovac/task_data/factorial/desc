@@ -1,0 +1,4 @@
+<html>
+<h1> Úloha: Fakt oriál.</h1>
+Na vstupe máte dané číslo 0 <= N <= 20.
+Na výstup vypíšte N faktoriál.
