@@ -155,7 +155,7 @@ void MainWindow::submitFinished(){
 
 void MainWindow::godmode(){
 	QMessageBox::information(0,"Godmode","You have just entered god mode.");
-	s->setProp("interaction/editable",1);
+	s->setProp("upgrades/readOnly",0);
 	reload();
 }
 

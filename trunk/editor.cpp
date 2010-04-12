@@ -20,7 +20,7 @@ void Editor::mousePressEvent(QMouseEvent *e){
 }
 
 void Editor::insertFromMimeData(const QMimeData *source){
-	if(s->getBool("upgrades/canPaste"))
+	if(s->getBool("upgrades/paste"))
 		QTextEdit::insertFromMimeData(source);
 }
 
