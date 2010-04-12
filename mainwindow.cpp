@@ -67,9 +67,11 @@ void MainWindow::changeEvent(QEvent *e)
 
 void MainWindow::resizeEvent(QResizeEvent *e){
 	customResize();
+	updateStatusBar();
 }
 
 void MainWindow::customResize(){
+	s->decrement("credits/count",s->getInt("prices/resizeAction"));
 	ui->textEdit->resize(this->width(),this->height()-(20*s->getInt("statusbar/enabled"))-(100*s->getInt("upgrades/showTaskDescription")));
 	ui->textEdit->move(0,100*s->getInt("upgrades/showTaskDescription"));
 	ui->textBrowser->resize(this->width(),100*s->getInt("upgrades/showTaskDescription"));
@@ -131,8 +133,13 @@ void MainWindow::reload(){
 		"}";
 	qApp->setStyleSheet(sheet);
 
-	//STATUSBAR
+	//WINDOW
 
+	bool vert = s->getBool("upgrades/resizeVertical");
+	bool horiz = s->getBool("upgrades/resizeHorizontal");
+	this->setMinimumSize(horiz?0:50,vert?0:50);
+	this->setMaximumSize(horiz?999999:50,vert?999999:50);
+	this->setSizePolicy(horiz?QSizePolicy::Preferred:QSizePolicy::Fixed,vert?QSizePolicy::Preferred:QSizePolicy::Fixed);
 	customResize();
 	updateStatusBar();
 }
