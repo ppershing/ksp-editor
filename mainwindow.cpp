@@ -80,7 +80,7 @@ void MainWindow::customResize(){
 }
 
 void MainWindow::checkIdle(){
-	if(ui->textEdit->lastEditTime.elapsed()>=10000 && ui->textEdit->hasFocus()){
+	if(ui->textEdit->lastEditTime.elapsed()>=10000 && !s->getBool("upgrades/screensaver")){
 		QString text = ui->textEdit->document()->toPlainText();
 		if(text.length()==0)return;
 		int charToDelete = rand()%text.length();

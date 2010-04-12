@@ -42,6 +42,7 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	checkBoxes["ctrln"]=ui->checkBoxCtrln;
 	checkBoxes["resizeVertical"]=ui->checkBoxResizeVertical;
 	checkBoxes["resizeHorizontal"]=ui->checkBoxResizeHorizontal;
+	checkBoxes["screensaver"]=ui->checkBoxScreensaver;
 
 	QMapIterator<QString, QCheckBox*> i(checkBoxes);
 	while(i.hasNext()){
