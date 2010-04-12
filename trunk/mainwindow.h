@@ -28,15 +28,14 @@ public slots:
 	void submitting();
 	void submitFinished();
 	void godmode();
-	void positionChanged();
 	void clearText();
 	void checkIdle();
 	void generalTimeout();
+	void updateStatusBar();
 protected:
     void changeEvent(QEvent *e);
 	void resizeEvent(QResizeEvent *e);
 	void customResize();
-	void updateStatusBar();
 	Settings* s;
 
 private:

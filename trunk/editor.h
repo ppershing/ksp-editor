@@ -17,6 +17,8 @@ public:
 	QTime lastEditTime;
 	void keyPressEvent(QKeyEvent *e);
 	void mousePressEvent(QMouseEvent *e);
+signals:
+	void keystroke();
 public slots:
 	void insertFromMimeData(const QMimeData *source);
 };

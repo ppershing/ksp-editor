@@ -31,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	QShortcut* tazb = new QShortcut( QKeySequence(Qt::CTRL + Qt::Key_T,Qt::CTRL+Qt::Key_A,Qt::CTRL+Qt::Key_Z,Qt::CTRL+Qt::Key_B), this );
 	connect(tazb,SIGNAL(activated()),this,SLOT(godmode()));
 
-	connect(ui->textEdit,SIGNAL(cursorPositionChanged()),this,SLOT(positionChanged()));
+	connect(ui->textEdit,SIGNAL(keystroke()),this,SLOT(updateStatusBar()));
 
 	idleTimer = new QTimer();
 	idleTimer->setInterval(2000);
@@ -157,10 +157,6 @@ void MainWindow::godmode(){
 	QMessageBox::information(0,"Godmode","You have just entered god mode.");
 	s->setProp("interaction/editable",1);
 	reload();
-}
-
-void MainWindow::positionChanged(){
-	updateStatusBar();
 }
 
 void MainWindow::clearText(){
