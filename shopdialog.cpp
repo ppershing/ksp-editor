@@ -39,6 +39,7 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	checkBoxes["showLog"]=ui->checkBoxShowLog;
 	checkBoxes["showFullLog"]=ui->checkBoxFullLog;
 	checkBoxes["showTaskDescription"]=ui->checkBoxShowProblemStatement;
+	checkBoxes["ctrln"]=ui->checkBoxCtrln;
 
 	QMapIterator<QString, QCheckBox*> i(checkBoxes);
 	while(i.hasNext()){
@@ -61,6 +62,7 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	reqs["showLog"] << "manualTest";
 	reqs["showFullLog"] << "showLog";
 	reqs["keyboardInteraction"] << "pageUpDown";
+	reqs["backspace"] << "ctrln";
 
 }
 

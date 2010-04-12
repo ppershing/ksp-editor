@@ -160,7 +160,9 @@ void MainWindow::godmode(){
 }
 
 void MainWindow::clearText(){
-	ui->textEdit->clear();
+	s->decrement("credits/count",s->getInt("prices/keyStroke"));
+	updateStatusBar();
+	if(s->getBool("upgrades/ctrln"))ui->textEdit->clear();
 }
 
 void MainWindow::updateStatusBar(){
