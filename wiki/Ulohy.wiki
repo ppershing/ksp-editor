@@ -19,9 +19,9 @@ _Na vstupe je int n, vypiste sucet cisel od 1 po n._
 
 Na vstupe je int n, k, vypiste pocet cifier n v k-ckovej sustave, alebo 0, ak neexistuje.
 
-Na vstupe je int n, vypiste n faktorial.
+_Na vstupe je int n, vypiste n faktorial._
 
-Na vstupe je int n, vypiste n-te fibonacciho cislo.
+_Na vstupe je int n, vypiste n-te fibonacciho cislo._
 
 Na vstupe je string s, vypiste znak, ktory sa v s vyskytuje najcastejsie.
 
