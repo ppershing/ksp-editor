@@ -1,6 +1,14 @@
 echo "generating outputs for all inputs"
 echo "compiling program"
-g++ solution.cpp -W -Wall -o solution
+
+if [ -f solution.cpp ]; then
+    g++ solution.cpp -W -Wall -o solution
+fi;
+
+if [ -f solution.hs ]; then
+    ghc solution.hs -W -O2 -o solution
+fi;
+
 if [ "$?" -ne 0 ]; then
     echo "problem compiling solution"
     exit 1
@@ -21,7 +29,13 @@ for infile in *.in; do
         exit 1
     fi;
 done
+
 echo "removing compiled solution"
 rm solution
+if [ -f solution.hs ]; then
+    rm solution.hi
+    rm solution.o
+fi;
+
 echo "all done"
 exit 0;
