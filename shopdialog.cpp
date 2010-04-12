@@ -186,6 +186,7 @@ void ShopDialog::upgrade(QString propName){
 		while(i.hasNext()){
 			i.next();
 			i.value()->setText(i.value()->text() + " (" + QString::number(s->getInt("prices/"+i.key())) + ")");
+			i.value()->adjustSize();
 		}
 	}
 	if(propName=="cheaperKeystrokes1")s->setProp("prices/keyStroke",1);
