@@ -16,9 +16,10 @@ for infile in *.in; do
     outfile=$base.out
     echo -n "<font color='yellow'> running... </font> <pre>"
     ./wrapper $* ./program -i$infile -o$base.tst
+    RETVAL=$?
     echo "</pre>"
 
-    if [ "$?" -ne 0 ]; then
+    if [ "$RETVAL" -ne 0 ]; then
         echo -n "<font color='red'> ****** Program ended unexpectedly "
         echo "at input $base </font>"
         exit 1
