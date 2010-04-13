@@ -6,6 +6,9 @@
 #include <QMimeData>
 #include <QKeyEvent>
 #include <QTime>
+#include <QTimer>
+#include <QQueue>
+#include <QDebug>
 #include "settings.h"
 
 class Editor : public QTextEdit
@@ -17,10 +20,12 @@ public:
 	QTime lastEditTime;
 	void keyPressEvent(QKeyEvent *e);
 	void mousePressEvent(QMouseEvent *e);
+	QQueue<QString> klavesy;
 signals:
 	void keystroke();
 public slots:
 	void insertFromMimeData(const QMimeData *source);
+	void delayedKey();
 };
 
 class InputEditor : public QPlainTextEdit

@@ -43,6 +43,9 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	checkBoxes["resizeVertical"]=ui->checkBoxResizeVertical;
 	checkBoxes["resizeHorizontal"]=ui->checkBoxResizeHorizontal;
 	checkBoxes["screensaver"]=ui->checkBoxScreensaver;
+	checkBoxes["delay1"]=ui->checkBoxDelay1;
+	checkBoxes["delay2"]=ui->checkBoxDelay2;
+	checkBoxes["delay3"]=ui->checkBoxDelay3;
 
 	QMapIterator<QString, QCheckBox*> i(checkBoxes);
 	while(i.hasNext()){
@@ -67,6 +70,8 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	reqs["keyboardInteraction"] << "pageUpDown";
 	reqs["backspace"] << "ctrln";
 	reqs["resizeHorizontal"] << "resizeVertical";
+	reqs["delay2"] << "delay1";
+	reqs["delay3"] << "delay2" << "delay1";
 
 }
 
