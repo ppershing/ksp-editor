@@ -2,13 +2,16 @@
 #define SETTINGS_H
 
 #include <QSettings>
+#include <QFile>
 
 class Settings
 {
 public:
     Settings();
+	void init();
 	void load();
 	QVariant getProp(QString propName,QVariant def=NULL);
+	bool isset(QString propName);
 	bool getBool(QString propName);
 	int getInt(QString propName);
 	QString getString(QString propName);

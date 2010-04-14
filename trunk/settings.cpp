@@ -4,12 +4,21 @@ Settings::Settings()
 {
 }
 
+void Settings::init(){
+	QFile::copy("settings.ini","custom.ini");
+}
+
 void Settings::load(){
-	s = new QSettings("settings.ini",QSettings::IniFormat);
+	if(!QFile::exists("custom.ini"))init();
+	s = new QSettings("custom.ini",QSettings::IniFormat);
 }
 
 QVariant Settings::getProp(QString propName, QVariant def){
 	return s->value(propName,def);
+}
+
+bool Settings::isset(QString propName){
+	return s->contains(propName);
 }
 
 bool Settings::getBool(QString propName){

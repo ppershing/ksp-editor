@@ -2,6 +2,9 @@
 #define KUPONDIALOG_H
 
 #include <QDialog>
+#include <QFile>
+#include <QSet>
+#include <QDebug>
 #include "settings.h"
 
 namespace Ui {
@@ -13,6 +16,9 @@ class KuponDialog : public QDialog {
 public:
 	KuponDialog(Settings* settings, QWidget *parent = 0);
     ~KuponDialog();
+	void loadCodes();
+	void clearCodes();
+	int kreditGain(QString code);
 
 public slots:
 	void accept();
@@ -23,6 +29,7 @@ protected:
 private:
     Ui::KuponDialog *ui;
 	Settings* s;
+	QSet<QString> codes;
 };
 
 #endif // KUPONDIALOG_H
