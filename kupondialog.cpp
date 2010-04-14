@@ -59,6 +59,7 @@ void KuponDialog::accept(){
 		return;
 	}
 
+	Logger::log("Pouzity kupon "+code+", ziskali "+QString::number(kreditGain(code))+" kreditov");
 	s->setProp("used/"+code,1);
 	s->increment("credits/count",kreditGain(code));
 	QDialog::accept();

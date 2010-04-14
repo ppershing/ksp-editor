@@ -7,6 +7,7 @@
 #include <string>
 #include "testovac/testovac.h"
 #include "settings.h"
+#include "logger.h"
 
 namespace Ui {
     class TestDialog;

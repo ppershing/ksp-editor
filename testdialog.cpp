@@ -59,6 +59,7 @@ QStringList TestDialog::toQStringList(std::vector<std::string> s){
 
 void TestDialog::on_pushButton_clicked()
 {
+	Logger::log("Submit start");
 	ui->textBrowser->clear();
 	compile_output.clear();
 	output.clear();
@@ -89,6 +90,7 @@ void TestDialog::on_pushButton_clicked()
 		ui->textBrowser->append("SUBMITTING...");
 		emit submitting();
 		int retval = Testovac::submit_solution(tasklist.at(currentTask).toAscii(),prog,compile_settings,test_settings,&compile_output,&output);
+		Logger::log("Submit uloha "+QString::number(currentTask)+": "+((retval==0)?"PASSED":"FAILED"));
 		ui->textBrowser->append(retval==0?"PASSED":"FAILED");
 		if(s->getBool("upgrades/showCompilationStatus")){
 			ui->textBrowser->append("");
