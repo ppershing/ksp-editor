@@ -26,6 +26,7 @@ void TestDialog::show(){
 	ui->textBrowser->clear();
 	ui->radioButtonCompileOnly->setEnabled(s->getBool("upgrades/compileOnly"));
 	ui->radioButtonManualTest->setEnabled(s->getBool("upgrades/manualTest"));
+	ui->pushButton->setEnabled(s->getInt("credits/count")>=s->getInt("prices/submitAction"));
 	QDialog::show();
 }
 
@@ -74,6 +75,10 @@ void TestDialog::on_pushButton_clicked()
 	test_settings.full_test_log = s->getInt("upgrades/showFullLog");
 
 	prog = fromQStringList(program.split("\n"));
+
+	// teraz za to zaplatia
+	s->decrement("credits/count",s->getInt("prices/submitAction"));
+	ui->pushButton->setEnabled(s->getInt("credits/count")>=s->getInt("prices/submitAction"));
 
 	// COMPILE ONLY
 
