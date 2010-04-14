@@ -13,11 +13,14 @@ void Editor::keyPressEvent(QKeyEvent *e){
 	if(e->text().length()==0)
 		QTextEdit::keyPressEvent(e);
 	else{
-
-		//napad: mozem zahadzovat ked je vela klaves naraz
-
-		klavesy.enqueue(e->text());
-		QTimer::singleShot(3000 - 1500*s->getInt("upgrades/delay1")-1000*s->getInt("upgrades/delay2")-500*s->getInt("upgrades/delay3"),this,SLOT(delayedKey()));
+		int pos=0;
+		if(!s->getBool("upgrades/synchronize"))
+			pos = rand() % (klavesy.length()+1);
+		klavesy.insert(pos,e->text());
+		int delay = s->getInt("screensaver/delay0");
+		if(s->getBool("upgrades/delay1"))delay = s->getInt("screensaver/delay1");
+		if(s->getBool("upgrades/delay2"))delay = s->getInt("screensaver/delay2");
+		QTimer::singleShot(delay,this,SLOT(delayedKey()));
 	}
 	lastEditTime = QTime::currentTime();
 }

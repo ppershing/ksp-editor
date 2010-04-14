@@ -22,6 +22,7 @@ public:
 	int kreditGain(QString code);
 
 public slots:
+	void show();
 	void accept();
 
 protected:
