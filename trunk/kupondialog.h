@@ -6,6 +6,7 @@
 #include <QSet>
 #include <QDebug>
 #include "settings.h"
+#include "logger.h"
 
 namespace Ui {
     class KuponDialog;

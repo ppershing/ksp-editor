@@ -175,6 +175,7 @@ void ShopDialog::reset(){
 }
 
 void ShopDialog::upgrade(QString propName){
+	Logger::log("Upgrade "+propName+" purchased");
 	s->setProp("upgrades/"+propName,1);
 	if(propName=="fontSize1")s->setProp("font/size",40);
 	if(propName=="fontSize2")s->setProp("font/size",20);

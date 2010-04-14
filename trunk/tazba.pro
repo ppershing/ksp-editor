@@ -10,14 +10,16 @@ SOURCES += main.cpp \
     kupondialog.cpp \
     editor.cpp \
     testdialog.cpp \
-    testovac/testovac_dummy.cpp
+    testovac/testovac_dummy.cpp \
+    logger.cpp
 HEADERS += mainwindow.h \
     settings.h \
     shopdialog.h \
     kupondialog.h \
     editor.h \
     testdialog.h \
-    testovac/testovac.h
+    testovac/testovac.h \
+    logger.h
 FORMS += mainwindow.ui \
     shopdialog.ui \
     kupondialog.ui \

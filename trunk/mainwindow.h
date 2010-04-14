@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <QProcess>
 #include <QTimer>
+#include "logger.h"
 #include "settings.h"
 #include "shopdialog.h"
 #include "kupondialog.h"

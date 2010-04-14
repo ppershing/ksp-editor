@@ -7,6 +7,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+	Logger::createInstance("log.txt");
+	Logger::log("Starting application");
 	ui->setupUi(this);
 	s = new Settings();
 	shopDialog = new ShopDialog(s);
@@ -42,7 +44,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	generalTimer->setInterval(1000);
 	connect(generalTimer,SIGNAL(timeout()),this,SLOT(generalTimeout()));
 	generalTimer->start();
-
+	Logger::log("Application started");
 }
 
 MainWindow::~MainWindow()
@@ -51,6 +53,8 @@ MainWindow::~MainWindow()
 	delete shopDialog;
 	delete kuponDialog;
 	delete s;
+	Logger::log("Ending application");
+	Logger::destroyInstance();
 }
 
 void MainWindow::changeEvent(QEvent *e)
@@ -161,6 +165,7 @@ void MainWindow::submitFinished(){
 }
 
 void MainWindow::godmode(){
+	Logger::log("Godmode");
 	QMessageBox::information(0,"Godmode","You have just entered god mode.");
 	s->setProp("upgrades/readOnly",0);
 	reload();

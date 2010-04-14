@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QCheckBox>
 #include "settings.h"
+#include "logger.h"
 
 namespace Ui {
     class ShopDialog;
