@@ -26,6 +26,11 @@ void KuponDialog::changeEvent(QEvent *e)
     }
 }
 
+void KuponDialog::show(){
+	ui->lineEdit->selectAll();
+	QDialog::show();
+}
+
 void KuponDialog::loadCodes(){
 	QFile* f = new QFile("codes.txt");
 	f->open(QIODevice::ReadOnly);

@@ -45,7 +45,7 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	checkBoxes["screensaver"]=ui->checkBoxScreensaver;
 	checkBoxes["delay1"]=ui->checkBoxDelay1;
 	checkBoxes["delay2"]=ui->checkBoxDelay2;
-	checkBoxes["delay3"]=ui->checkBoxDelay3;
+	checkBoxes["synchronize"]=ui->checkBoxSynchronize;
 
 	QMapIterator<QString, QCheckBox*> i(checkBoxes);
 	while(i.hasNext()){
@@ -70,8 +70,7 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	reqs["keyboardInteraction"] << "pageUpDown";
 	reqs["backspace"] << "ctrln";
 	reqs["resizeHorizontal"] << "resizeVertical";
-	reqs["delay2"] << "delay1";
-	reqs["delay3"] << "delay2" << "delay1";
+	reqs["delay2"] << "delay1" << "synchronize";
 
 }
 
@@ -199,7 +198,7 @@ void ShopDialog::upgrade(QString propName){
 			i.value()->adjustSize();
 		}
 	}
-	if(propName=="cheaperKeystrokes1")s->setProp("prices/keyStroke",1);
+	if(propName=="cheaperKeystrokes1")s->setProp("prices/keyStroke",4);
 	if(propName=="cheaperKeystrokes2")s->setProp("prices/keyStroke",0);
 }
 
