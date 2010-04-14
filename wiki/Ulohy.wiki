@@ -36,8 +36,12 @@ _Na vstup je int n, potom n intov k, vypiste median._
 Na vstup je int n, m, potom m intov k, vypiste ci existuju dva, ktorych rozdiel je n.
 
 
+Urcite chceme "vypiste tento text (a bude tam dost dlhy uryvok z niecoho)"
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Na vstupe je datum, vypiste ho pisanym (napr. prveho maja, ..., toto treba presnejsie specifikovat)
+
+_Na vstupe je (dlhe) cislo v desiatkovej sustave. Vypiste, ci je delitelne 3._
+
+Na vstupe je string, vypiste ho reverzne.
+
+A potom by mohli zacat aj serioznejsie ulohy - prehladavania do hlbky, sirky...
