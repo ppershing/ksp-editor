@@ -7,6 +7,8 @@ Tu budu ulohy, ktore budu riesit. Mali by byt zoradene od najlahsej po najtazsiu
 
 = Details =
 
+*Lahke:*
+
 _Spravte lubovolny program, ktory sa da skompilovat._
 
 _Spravte program, ktory vypise 0._
@@ -17,7 +19,6 @@ _Spravte program, ktory vypise prirodzene cisla od 22 po 88 oddelene medzerou._
 
 _Na vstupe je int n, vypiste sucet cisel od 1 po n._
 
-Na vstupe je int n, k, vypiste pocet cifier n v k-ckovej sustave, alebo 0, ak neexistuje.
 
 _Na vstupe je int n, vypiste n faktorial._
 
@@ -31,17 +32,36 @@ _Na vstupe je string s, vypiste s sprava dolava._
 
 Na vstupe je string s,p, vypiste pocet vyskytov p v s.
 
+*Stredne:*
+
+Na vstupe je int n, k, vypiste pocet cifier n v k-ckovej sustave, alebo 0, ak neexistuje.
+
 _Na vstup je int n, potom n intov k, vypiste median._
 
 Na vstup je int n, m, potom m intov k, vypiste ci existuju dva, ktorych rozdiel je n.
 
-
-Urcite chceme "vypiste tento text (a bude tam dost dlhy uryvok z niecoho)"
+Urcite chceme "vypiste tento text (a bude tam dost dlhy uryvok z niecoho, napriklad lorem ipsum)"
 
 Na vstupe je datum, vypiste ho pisanym (napr. prveho maja, ..., toto treba presnejsie specifikovat)
 
 _Na vstupe je (dlhe) cislo v desiatkovej sustave. Vypiste, ci je delitelne 3._
 
-Na vstupe je string, vypiste ho reverzne.
+Na vstupe je (dlhe) cislo v desiatkovej sustave. Vypiste ci je delitelne 11.
 
-A potom by mohli zacat aj serioznejsie ulohy - prehladavania do hlbky, sirky...
+*tazsie priklady:*
+
+na vstupe je n<=10^6 cisel, 0<=c_i<=10000; Vypiste tieto cisla utriedene.
+Poznamka: pointa je - bud mam upgrade na pamat a viem to spravit trivialnym sortom alebo musim pisat count sort
+
+na vstupe mame dany graf. Vypiste ci obsahuje cyklus.
+
+na vstupe mame dany graf. Vypiste ci ho ide vrcholovo ofarbit 2 farbami
+
+na vstupe mame postupnost vrcholov grafu v preorder, vypiste ju v inorder.
+
+Chceme jedno zadanie ulohy, ktore bude zniet nasledovne:
+Toto je velmi narocna uloha, takze ked ju uz vyriesis, bude velmi jednoduche na nu
+napisat program. Ten jednoducho vypise na riadku "som kryptoanalytik" a to je vsetko.
+Pointa: zadanie ulohy bude posunute v abecede o niekolko znakov. Bud to zlomia rucne alebo programom, vtedy musia mat manual testing aby si vedeli vypisat riesenie.
+
+*A zufalo nam chybaju dalsie ulohy. Ak to bude totiz naozaj trvat 3 hodiny, tak ku koncu to bude celkom huste pretoze budu mat pomerne funkcny editor a teda budu zvladat kodit normalne. Jedine obmedzenie budu kredity na klavesy a submity a testovania.*
