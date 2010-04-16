@@ -65,8 +65,8 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	reqs["showCompilationWarnings"] << "showCompilationStatus";
 	reqs["compileOnly"] << "showCompilationStatus";
 	reqs["manualTest"] << "compileOnly";
-	reqs["showLog"] << "manualTest";
-	reqs["showFullLog"] << "showLog";
+	reqs["showLog"] << "showCompilationStatus";
+	reqs["showFullLog"] << "showLog" << "manualTest";
 	reqs["keyboardInteraction"] << "pageUpDown";
 	reqs["backspace"] << "ctrln";
 	reqs["resizeHorizontal"] << "resizeVertical";
@@ -176,7 +176,7 @@ void ShopDialog::reset(){
 void ShopDialog::upgrade(QString propName){
 	Logger::log("Upgrade "+propName+" purchased");
 	s->setProp("upgrades/"+propName,1);
-	if(propName=="fontSize1")s->setProp("font/size",40);
+	if(propName=="fontSize1")s->setProp("font/size",80);
 	if(propName=="fontSize2")s->setProp("font/size",20);
 	if(propName=="fontSize3")s->setProp("font/size",10);
 	if(propName=="wordSpacing")s->setProp("font/word_spacing",0);
@@ -199,7 +199,7 @@ void ShopDialog::upgrade(QString propName){
 		}
 	}
 	if(propName=="cheaperKeystrokes1")s->setProp("prices/keyStroke",4);
-	if(propName=="cheaperKeystrokes2")s->setProp("prices/keyStroke",0);
+	if(propName=="cheaperKeystrokes2")s->setProp("prices/keyStroke",1);
 }
 
 QString ShopDialog::checkBoxToPropName(QCheckBox *checkBox){
