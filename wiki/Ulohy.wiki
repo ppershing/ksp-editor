@@ -17,6 +17,8 @@ _Spravte program, ktory vypise "Hello world!"._
 
 _Spravte program, ktory vypise prirodzene cisla od 22 po 88 oddelene medzerou._
 
+_Spravte program, ktory zisti, ci je na vstupe slovo "srnka"._
+
 _Na vstupe je int n, vypiste sucet cisel od 1 po n._
 
 
