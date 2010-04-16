@@ -1,10 +1,10 @@
 #include <stdio.h>
 
 int main(){
-	char s[50] ;
-	scanf("%s", &s);
+	char s[500] ;
+	fgets(s,400,stdin);
 	int i=0;
-	while (s[i]!=0) i++;
+	while (s[i]!='\n') i++;
 	while (i>0)
 	{
 		i--;
