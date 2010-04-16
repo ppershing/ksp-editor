@@ -15,9 +15,28 @@ for infile in *.in; do
     base=`basename $infile .in`
     outfile=$base.out
     echo -n "<font color='yellow'> running... </font> <pre>"
-    ./wrapper $* ./program -i$infile -o$base.tst
+    ./wrapper $* ./program -i$infile -o$base.tst &>tmp
     RETVAL=$?
+    cat tmp
     echo "</pre>"
+
+    if grep EXC tmp; then
+        echo "<font color='red'> Your program received a signal. This means that"
+        echo "probably you have index out of bounds or other memory"
+        echo "corruption.<br>"
+        echo "But note, that this could mean your program did not fit"
+        echo "into alloted memory (buy more memory) </font><br>"
+    fi
+
+    if grep TLE tmp; then
+        echo "<font color='red'>Your program did not finish "
+        echo "in specified time (buy more time)</font><br>"
+    fi
+
+    if grep SEC tmp; then
+        echo "<font color='red'>Security violation! You tried to access some files "
+        echo "or use some nasty functions</font><br>"
+    fi
 
     if [ "$RETVAL" -ne 0 ]; then
         echo -n "<font color='red'> ****** Program ended unexpectedly "
