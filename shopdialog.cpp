@@ -1,4 +1,5 @@
 #include <QDebug>
+#include <QFont>
 #include "shopdialog.h"
 #include "ui_shopdialog.h"
 
@@ -47,10 +48,15 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	checkBoxes["delay2"]=ui->checkBoxDelay2;
 	checkBoxes["synchronize"]=ui->checkBoxSynchronize;
 
+	QFont font("Arial", 8);
+
 	QMapIterator<QString, QCheckBox*> i(checkBoxes);
 	while(i.hasNext()){
 		i.next();
 		connect(i.value(),SIGNAL(toggled(bool)),this,SLOT(reload()));
+		i.value()->raise();
+		i.value()->setFont(font);
+		i.value()->adjustSize();
 	}
 
 	reqs["lineNumber"] << "statusBar";
