@@ -78,6 +78,9 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	reqs["resizeHorizontal"] << "resizeVertical";
 	reqs["delay2"] << "delay1" << "synchronize";
 
+
+	if(s->getBool("upgrades/showPrices"))
+		addPrices();
 }
 
 ShopDialog::~ShopDialog()
@@ -95,6 +98,15 @@ void ShopDialog::changeEvent(QEvent *e)
     default:
         break;
     }
+}
+
+void ShopDialog::addPrices(){
+	QMapIterator<QString, QCheckBox*> i(checkBoxes);
+	while(i.hasNext()){
+		i.next();
+		i.value()->setText(i.value()->text() + " (" + QString::number(s->getInt("prices/"+i.key())) + ")");
+		i.value()->adjustSize();
+	}
 }
 
 void ShopDialog::show(){
@@ -197,12 +209,7 @@ void ShopDialog::upgrade(QString propName){
 	if(propName=="credits")s->setProp("statusbar/credits",1);
 	if(propName=="showPrices"){
 		s->setProp("shopping/showPrices",1);
-		QMapIterator<QString, QCheckBox*> i(checkBoxes);
-		while(i.hasNext()){
-			i.next();
-			i.value()->setText(i.value()->text() + " (" + QString::number(s->getInt("prices/"+i.key())) + ")");
-			i.value()->adjustSize();
-		}
+		addPrices();
 	}
 	if(propName=="cheaperKeystrokes1")s->setProp("prices/keyStroke",4);
 	if(propName=="cheaperKeystrokes2")s->setProp("prices/keyStroke",1);

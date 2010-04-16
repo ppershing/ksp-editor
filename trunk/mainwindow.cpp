@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	Logger::log("Starting application");
 	ui->setupUi(this);
 	s = new Settings();
+	s->load();
 	shopDialog = new ShopDialog(s);
 	kuponDialog = new KuponDialog(s);
 	testDialog = new TestDialog(s);

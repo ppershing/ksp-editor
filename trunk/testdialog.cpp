@@ -14,7 +14,7 @@ TestDialog::TestDialog(Settings* settings, QWidget *parent) :
 
 	tasklist.push_back("Už si spravil všetky ulohy.");
 	taskDescriptions.push_back("Už si spravil všetky ulohy.");
-	currentTask = 0;
+	currentTask = s->getInt("tasks/done");
 }
 
 TestDialog::~TestDialog()
@@ -113,6 +113,7 @@ void TestDialog::on_pushButton_clicked()
 		if(retval==0){
 			qDebug() << currentTask << ": OK";
 			currentTask++;
+			s->setProp("tasks/done",currentTask);
 			if(currentTask==tasklist.size()-1)
 				qDebug() << "HOTOVO";
 
