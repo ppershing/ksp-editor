@@ -1245,12 +1245,12 @@
       <rect>
        <x>50</x>
        <y>120</y>
-       <width>151</width>
+       <width>191</width>
        <height>20</height>
       </rect>
      </property>
      <property name="text">
-      <string>Show problem statement</string>
+      <string>Show problem statement (zadania)</string>
      </property>
     </widget>
     <widget class="Line" name="line_27">
