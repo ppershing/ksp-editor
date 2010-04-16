@@ -1,0 +1,19 @@
+<html>
+<h1> Úloha: Stredný prvok. </h1>
+Na vstupe je na prvom riadku dané číslo 0 < N <= 3000000.
+Na druhom riadku sa nachádza N čísiel 0 < x<sub>i</sub> <= 1000.
+Vašou úlohou je vypísať tieto čísla v utriedenom poradí, každé na jednom
+riadku.
+
+<h2>Príklad: </h2>
+<pre>
+Vstup:
+5
+4 3 1 2 5
+Výstup:
+1
+2
+3
+4
+5
+</pre>
