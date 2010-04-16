@@ -103,7 +103,7 @@ void MainWindow::show(){
 }
 
 void MainWindow::help(){
-	QMessageBox::information(0,"Help","F1: Help\nF5: Reload\nF6: Submit\nF7: Shop\nF8: Pouzi kupon");
+	QMessageBox::information(0,"Help","F1: Help\nF6: Submit\nF7: Kúp si upgrade\nF8: Použi kupón");
 }
 
 void MainWindow::reload(){
