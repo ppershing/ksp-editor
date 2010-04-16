@@ -15,6 +15,7 @@ class ShopDialog : public QDialog {
 public:
 	ShopDialog(Settings* settings,QWidget *parent = 0);
     ~ShopDialog();
+	void addPrices();
 
 public slots:
 	void show();
