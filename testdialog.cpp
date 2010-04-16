@@ -77,12 +77,12 @@ void TestDialog::on_pushButton_clicked()
 	prog = fromQStringList(program.split("\n"));
 
 	// teraz za to zaplatia
-	s->decrement("credits/count",s->getInt("prices/submitAction"));
-	ui->pushButton->setEnabled(s->getInt("credits/count")>=s->getInt("prices/submitAction"));
 
 	// COMPILE ONLY
 
 	if(ui->radioButtonCompileOnly->isChecked()){
+	        s->decrement("credits/count",s->getInt("prices/compileAction"));
+	        ui->pushButton->setEnabled(s->getInt("credits/count")>=s->getInt("prices/compileAction"));
 		ui->textBrowser->append("COMPILING...");
 		int retval = Testovac::compile(prog,compile_settings,&compile_output);
 		ui->textBrowser->append((retval==0)?"OK":"FAILED");
@@ -92,6 +92,8 @@ void TestDialog::on_pushButton_clicked()
 	// SUBMIT
 
 	if(ui->radioButtonSubmit->isChecked()){
+	        s->decrement("credits/count",s->getInt("prices/submitAction"));
+	        ui->pushButton->setEnabled(s->getInt("credits/count")>=s->getInt("prices/submitAction"));
 		ui->textBrowser->append("SUBMITTING...");
 		emit submitting();
 		int retval = Testovac::submit_solution(tasklist.at(currentTask).toAscii(),prog,compile_settings,test_settings,&compile_output,&output);
@@ -121,6 +123,8 @@ void TestDialog::on_pushButton_clicked()
 	// MANUAL TEST
 
 	if(ui->radioButtonManualTest->isChecked()){
+	        s->decrement("credits/count",s->getInt("prices/manualTestAction"));
+	        ui->pushButton->setEnabled(s->getInt("credits/count")>=s->getInt("prices/manualTestAction"));
 		ui->textBrowser->append("MANUAL TESTING...");
 		std::vector<std::string> input = fromQStringList(ui->plainTextEdit->toPlainText().split("\n"));
 		int retval = Testovac::test_on_input(prog,input,compile_settings,test_settings,&compile_output,&output);
