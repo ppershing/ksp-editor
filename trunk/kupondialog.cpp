@@ -45,7 +45,11 @@ void KuponDialog::clearCodes(){
 }
 
 int KuponDialog::kreditGain(QString code){
-	return code.length()*code.length()*code.length();
+	int x = code.length()-6;
+	int a=100;
+	for(;x>0;x--)
+		a*=2;
+	return a;
 }
 
 void KuponDialog::accept(){
