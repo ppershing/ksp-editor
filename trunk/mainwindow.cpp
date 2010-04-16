@@ -126,7 +126,6 @@ void MainWindow::reload(){
 	QFlags<Qt::TextInteractionFlag> flags = Qt::NoTextInteraction;
 	if(s->getBool("upgrades/mouseInteraction"))flags|=Qt::TextSelectableByMouse;
 	if(s->getBool("upgrades/keyboardInteraction"))flags|=Qt::TextSelectableByKeyboard;
-	if(!s->getBool("upgrades/readOnly"))flags|=Qt::TextEditable;
 	ui->textEdit->setTextInteractionFlags(flags);
 	ui->textEdit->setUndoRedoEnabled(s->getBool("upgrades/undoRedo"));
 

@@ -10,6 +10,7 @@ void Editor::keyPressEvent(QKeyEvent *e){
 	emit keystroke();
 	if(e->key()==Qt::Key_Backspace && !s->getBool("upgrades/backspace"))return;
 	if((e->key()==Qt::Key_PageUp || e->key()==Qt::Key_PageDown) && !s->getBool("upgrades/pageUpDown"))return;
+	if(s->getBool("upgrades/readOnly"))return;
 	if(e->text().length()==0)
 		QTextEdit::keyPressEvent(e);
 	else{
