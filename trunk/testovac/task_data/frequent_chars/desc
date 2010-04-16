@@ -1,0 +1,5 @@
+<html>
+<h1> Úloha: Najčastejšie znaky. </h1>
+Na prvom riadku vstupu je číslo 0 < N <= 100.
+Na druhom riadku vstupu je reťazec s aspoň jedným a maximálne 10000 písmenami od "a" po "z".
+Na výstup vypíšte v abecednom poradí tie znaky, ktoré sa v tomto raťazci vyskytujú aspoň N krát.
