@@ -40,7 +40,7 @@ _Na vstup je int n, potom n intov k, vypiste median._
 
 Na vstup je int n, m, potom m intov k, vypiste ci existuju dva, ktorych rozdiel je n.
 
-Urcite chceme "vypiste tento text (a bude tam dost dlhy uryvok z niecoho, napriklad lorem ipsum)"
+_Urcite chceme "vypiste tento text (a bude tam dost dlhy uryvok z niecoho, napriklad lorem ipsum)"_
 
 Na vstupe je datum, vypiste ho pisanym (napr. prveho maja, ..., toto treba presnejsie specifikovat)
 
