@@ -14,7 +14,7 @@ void Editor::keyPressEvent(QKeyEvent *e){
 	if(e->text().length()==0)
 		QTextEdit::keyPressEvent(e);
 	else{
-		int pos=0;
+		int pos = klavesy.length();
 		if(!s->getBool("upgrades/synchronize"))
 			pos = rand() % (klavesy.length()+1);
 		klavesy.insert(pos,e->text());
