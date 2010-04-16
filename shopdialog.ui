@@ -113,7 +113,7 @@
       <rect>
        <x>30</x>
        <y>60</y>
-       <width>471</width>
+       <width>461</width>
        <height>16</height>
       </rect>
      </property>
@@ -246,7 +246,7 @@
     <widget class="QCheckBox" name="checkBoxWordSpacing">
      <property name="geometry">
       <rect>
-       <x>490</x>
+       <x>480</x>
        <y>100</y>
        <width>161</width>
        <height>18</height>
@@ -272,7 +272,7 @@
     <widget class="Line" name="line_21">
      <property name="geometry">
       <rect>
-       <x>490</x>
+       <x>480</x>
        <y>70</y>
        <width>16</width>
        <height>41</height>
@@ -457,7 +457,7 @@
        <x>150</x>
        <y>130</y>
        <width>20</width>
-       <height>51</height>
+       <height>61</height>
       </rect>
      </property>
      <property name="orientation">
@@ -470,7 +470,7 @@
        <x>10</x>
        <y>130</y>
        <width>20</width>
-       <height>51</height>
+       <height>81</height>
       </rect>
      </property>
      <property name="orientation">
@@ -481,7 +481,7 @@
      <property name="geometry">
       <rect>
        <x>150</x>
-       <y>170</y>
+       <y>190</y>
        <width>171</width>
        <height>18</height>
       </rect>
@@ -512,7 +512,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>170</y>
+       <y>210</y>
        <width>141</width>
        <height>18</height>
       </rect>
@@ -859,7 +859,7 @@
     <widget class="Line" name="line_28">
      <property name="geometry">
       <rect>
-       <x>160</x>
+       <x>140</x>
        <y>160</y>
        <width>16</width>
        <height>51</height>
@@ -872,7 +872,7 @@
     <widget class="QCheckBox" name="checkBoxDelay1">
      <property name="geometry">
       <rect>
-       <x>160</x>
+       <x>140</x>
        <y>180</y>
        <width>111</width>
        <height>17</height>
@@ -924,10 +924,10 @@
     <widget class="Line" name="line_30">
      <property name="geometry">
       <rect>
-       <x>170</x>
+       <x>150</x>
        <y>200</y>
-       <width>141</width>
-       <height>16</height>
+       <width>161</width>
+       <height>20</height>
       </rect>
      </property>
      <property name="orientation">
