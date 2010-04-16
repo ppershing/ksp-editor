@@ -48,6 +48,11 @@ _Na vstupe je (dlhe) cislo v desiatkovej sustave. Vypiste, ci je delitelne 3._
 
 Na vstupe je (dlhe) cislo v desiatkovej sustave. Vypiste ci je delitelne 11.
 
+_Chceme jedno zadanie ulohy, ktore bude zniet nasledovne:
+Toto je velmi narocna uloha, takze ked ju uz vyriesis, bude velmi jednoduche na nu
+napisat program. Ten jednoducho vypise na riadku "som kryptoanalytik" a to je vsetko.
+Pointa: zadanie ulohy bude posunute v abecede o niekolko znakov. Bud to zlomia rucne alebo programom, vtedy musia mat manual testing aby si vedeli vypisat riesenie._
+
 *tazsie priklady:*
 
 na vstupe je n<=10^6 cisel, 0<=c_i<=10000; Vypiste tieto cisla utriedene.
@@ -58,10 +63,5 @@ na vstupe mame dany graf. Vypiste ci obsahuje cyklus.
 na vstupe mame dany graf. Vypiste ci ho ide vrcholovo ofarbit 2 farbami
 
 na vstupe mame postupnost vrcholov grafu v preorder, vypiste ju v inorder.
-
-Chceme jedno zadanie ulohy, ktore bude zniet nasledovne:
-Toto je velmi narocna uloha, takze ked ju uz vyriesis, bude velmi jednoduche na nu
-napisat program. Ten jednoducho vypise na riadku "som kryptoanalytik" a to je vsetko.
-Pointa: zadanie ulohy bude posunute v abecede o niekolko znakov. Bud to zlomia rucne alebo programom, vtedy musia mat manual testing aby si vedeli vypisat riesenie.
 
 *A zufalo nam chybaju dalsie ulohy. Ak to bude totiz naozaj trvat 3 hodiny, tak ku koncu to bude celkom huste pretoze budu mat pomerne funkcny editor a teda budu zvladat kodit normalne. Jedine obmedzenie budu kredity na klavesy a submity a testovania.*
