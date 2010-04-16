@@ -47,6 +47,7 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	checkBoxes["delay1"]=ui->checkBoxDelay1;
 	checkBoxes["delay2"]=ui->checkBoxDelay2;
 	checkBoxes["synchronize"]=ui->checkBoxSynchronize;
+	checkBoxes["memoryLimit"]=ui->checkBoxMemoryLimit;
 
 	QFont font("Arial", 8);
 
