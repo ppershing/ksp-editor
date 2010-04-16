@@ -29,7 +29,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Submit</string>
+   <string>Submitni!</string>
   </property>
   <property name="modal">
    <bool>true</bool>
