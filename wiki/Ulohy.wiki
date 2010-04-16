@@ -24,9 +24,9 @@ _Na vstupe je int n, vypiste n faktorial._
 
 _Na vstupe je int n, vypiste n-te fibonacciho cislo._
 
-Na vstupe je string s, vypiste znak, ktory sa v s vyskytuje najcastejsie.
+_Na vstupe je string s, vypiste znak, ktory sa v s vyskytuje najcastejsie._
 
-Na vstupe je int n,string s, vypiste vsetky znaky v s, ktore sa tam nachadzaju aspon n krat.
+_Na vstupe je int n,string s, vypiste vsetky znaky v s, ktore sa tam nachadzaju aspon n krat._
 
 _Na vstupe je string s, vypiste s sprava dolava._
 
