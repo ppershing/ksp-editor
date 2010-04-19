@@ -3,9 +3,7 @@ echo "compiling program"
 
 if [ -f solution.cpp ]; then
     g++ solution.cpp -W -Wall -o solution
-fi;
-
-if [ -f solution.hs ]; then
+elif [ -f solution.hs ]; then
     ghc solution.hs -W -O2 -o solution
 fi;
 
