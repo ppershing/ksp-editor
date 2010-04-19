@@ -1,6 +1,6 @@
 <html>
 <h1> Úloha: Deliteľnosť jedenástkou. </h1>
 Na vstupe je číslo s maximálne 100000 ciframi.
-Ak je deliteľné tromi, tak vypíšte "True",
+Ak je deliteľné jedenástimi, tak vypíšte "True",
 inak "False".
 (Bez uvodzoviek.)
