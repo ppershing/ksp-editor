@@ -7,6 +7,15 @@
 <html>
 <h1> Úloha: dva a dva je tri </h1>
 
-Na vstupe sú 2 čísla <i>-1000000000 ≺ n,m ≺ 1000000000 </i>.
-Vypíšte jeden riadok a na ňom číslo jediné číslo <i>n+m</i>.
+Na vstupe sú 2 čísla <var> -1 000 000 000 ≤ n,m ≤ 1 000 000 000 </var>.
+Vypíšte jeden riadok a na ňom číslo jediné číslo <var>n+m</var>.
+<br>
+<br>
+Príklad:
+<pre>
+Vstup:
+-2 49
 
+Výstup:
+47
+<pre>
