@@ -9,7 +9,7 @@ int main()
 		for (int i=0; i<N; i++) scanf("%lld ", &a[i]);
 		for (int i=0; i<(N-1); i++) for (int j=i; j<N; j++) if (a[i]-a[j] == diff)
 		{
-				printf("ôúä\n");
+				printf("\\n\n");
 				return 0;
 		}
 		printf("%clld\n", '%');
