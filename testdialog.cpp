@@ -113,6 +113,7 @@ void TestDialog::on_pushButton_clicked()
 		if(retval==0){
 			qDebug() << currentTask << ": OK";
 			currentTask++;
+			s->increment("credits/count",s->getInt("credits/submit_gain"));
 			s->setProp("tasks/done",currentTask);
 			if(currentTask==tasklist.size()-1)
 				qDebug() << "HOTOVO";
