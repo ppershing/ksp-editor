@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Mon Apr 19 21:35:18 2010
-**      by: Qt User Interface Compiler version 4.6.2
+** Created: Tue 20. Apr 11:48:01 2010
+**      by: Qt User Interface Compiler version 4.6.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -39,14 +39,14 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(100, 100);
+        MainWindow->resize(200, 200);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(MainWindow->sizePolicy().hasHeightForWidth());
         MainWindow->setSizePolicy(sizePolicy);
-        MainWindow->setMinimumSize(QSize(100, 100));
-        MainWindow->setMaximumSize(QSize(100, 100));
+        MainWindow->setMinimumSize(QSize(200, 200));
+        MainWindow->setMaximumSize(QSize(200, 200));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         textEdit = new Editor(centralWidget);

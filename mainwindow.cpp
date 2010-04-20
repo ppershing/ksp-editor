@@ -96,7 +96,6 @@ void MainWindow::checkIdle(){
 }
 
 void MainWindow::generalTimeout(){
-
 }
 
 void MainWindow::show(){
