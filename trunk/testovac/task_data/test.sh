@@ -14,8 +14,9 @@ for infile in *.in; do
 
     base=`basename $infile .in`
     outfile=$base.out
+    tstfile=$base.tst
     echo -n "<font color='yellow'> running... </font> <pre>"
-    ./wrapper $* ./program -i$infile -o$base.tst &>tmp
+    ./wrapper $* ./program -i$infile -o$outfile &>tmp
     RETVAL=$?
     cat tmp
     echo "</pre>"
@@ -47,7 +48,7 @@ for infile in *.in; do
     echo "checking output for validity...</font><br>"
 
     if [ $SHOW_DIFF -ne 0 ]; then
-        diff $base.tst $base.out > $base.diff;
+        diff $outfile $tstfile > $base.diff;
         DIFFRES=$?
         echo "<font color='yellow'> Diff: </font><pre> "
         cat $base.diff | sed 's/</≪/' \
@@ -55,7 +56,7 @@ for infile in *.in; do
                 | sed 's/&/∝/';
         echo "</pre>";
     else
-        diff $base.tst $base.out > /dev/null
+        diff $outfile $tstfile > /dev/null
         DIFFRES=$?
     fi
     if [ "$DIFFRES" -ne 0 ]; then
