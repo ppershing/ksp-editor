@@ -49,7 +49,7 @@ int KuponDialog::kreditGain(QString code){
 	int a=s->getInt("credits/base_gain");
 	for(;x>0;x--)
 		a*=2;
-	return a;
+	return a+1; //+1 kvoli tomu resizu co sa zavola
 }
 
 void KuponDialog::accept(){
