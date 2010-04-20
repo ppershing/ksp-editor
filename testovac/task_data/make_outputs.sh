@@ -20,7 +20,7 @@ for infile in *.in; do
     echo "generating out for $infile"
     base=`basename $infile .in`
     outfile=$base.out
-    time ./solution <$infile >$base.out
+    time ./solution <$infile >$base.tst
     if [ "$?" -ne 0 ]; then
         echo -n "Problem generating output"
         echo "at input $base"
