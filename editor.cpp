@@ -7,6 +7,10 @@ Editor::Editor(QWidget* parent) : QTextEdit(parent)
 }
 
 void Editor::keyPressEvent(QKeyEvent *e){
+
+	setFontPointSize(s->getInt("font/size"));
+	setFontFamily(s->getString("font/family"));
+
 	if(s->getInt("prices/keyStroke")>s->getInt("credits/count"))return;
 	s->decrement("credits/count",s->getInt("prices/keyStroke"));
 	emit keystroke();
