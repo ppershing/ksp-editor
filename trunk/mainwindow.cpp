@@ -13,6 +13,11 @@ MainWindow::MainWindow(QWidget *parent) :
 	s = new Settings();
 	s->load();
 	Logger::log("Settings loaded");
+
+	this->setMinimumWidth(s->getInt("dimensions/w"));
+	this->setMinimumHeight(s->getInt("dimensions/h"));
+	this->resize(s->getInt("dimensions/w"),s->getInt("dimensions/h"));
+
 	shopDialog = new ShopDialog(s);
 	kuponDialog = new KuponDialog(s);
 	testDialog = new TestDialog(s);
@@ -83,6 +88,9 @@ void MainWindow::customResize(){
 	ui->textBrowser->resize(this->width(),100*s->getInt("upgrades/showTaskDescription"));
 	ui->textBrowser->setHtml(testDialog->taskDescriptions.at(testDialog->currentTask));
 	ui->statusBar->move(0,this->height()-(20*s->getInt("statusbar/enabled")));
+
+	s->setProp("dimensions/w",this->width());
+	s->setProp("dimensions/h",this->height());
 }
 
 void MainWindow::checkIdle(){
