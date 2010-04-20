@@ -15,6 +15,7 @@ for infile in *.in; do
     base=`basename $infile .in`
     outfile=$base.out
     tstfile=$base.tst
+    difffile=$base.diff
     echo -n "<font color='yellow'> running... </font> <pre>"
     ./wrapper $* ./program -i$infile -o$outfile &>tmp
     RETVAL=$?
@@ -47,18 +48,17 @@ for infile in *.in; do
     echo "<font color='yellow'> program exitted normally"
     echo "checking output for validity...</font><br>"
 
+    diff $outfile $tstfile > $difffile;
+    DIFFRES=$?
+
     if [ $SHOW_DIFF -ne 0 ]; then
-        diff $outfile $tstfile > $base.diff;
-        DIFFRES=$?
         echo "<font color='yellow'> Diff: </font><pre> "
-        cat $base.diff | sed 's/</≪/' \
+        cat $difffile | sed 's/</≪/' \
                 | sed 's/>/≫/' \
                 | sed 's/&/∝/';
         echo "</pre>";
-    else
-        diff $outfile $tstfile > /dev/null
-        DIFFRES=$?
     fi
+
     if [ "$DIFFRES" -ne 0 ]; then
         echo -n "<font color='red'> **** The output of testcase "
         echo " $base is not correct </font>"
