@@ -46,7 +46,7 @@ void KuponDialog::clearCodes(){
 
 int KuponDialog::kreditGain(QString code){
 	int x = code.length()-6;
-	int a=100;
+	int a=s->getInt("credits/base_gain");
 	for(;x>0;x--)
 		a*=2;
 	return a;
