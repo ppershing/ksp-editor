@@ -30,9 +30,11 @@ private:
     static string get_sandbox_dir();
     static string get_wrapper_dir();
     static string get_program_bin();
+    static string get_backup_dir();
     static string get_tasks_dir();
     static string get_program_source(string ext);
     static string inttostr(int i);
+    static void backup_sandbox();
     // }}}
 public:
     /* you must initialize library before any other call,

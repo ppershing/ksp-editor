@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <fstream>
 #include <cassert>
+#include <time.h>
 
 string Testovac::testdir;
 int Testovac::initialized;
@@ -9,6 +10,10 @@ int Testovac::initialized;
 void Testovac::initialize(const char* testdir){
     Testovac::testdir = testdir;
     Testovac::initialized = 1;
+}
+
+string Testovac::get_backup_dir() {
+    return testdir+"/backup";
 }
 
 string Testovac::get_sandbox_dir(){
@@ -29,6 +34,15 @@ string Testovac::get_program_bin(){
 
 string Testovac::get_program_source(string ext){
     return get_program_bin()+"."+ext;
+}
+
+void Testovac::backup_sandbox() {
+    assert(initialized);
+    string n=get_backup_dir() + "/" + inttostr(time(NULL));
+    string s1="mkdir "+n;
+    string s2="cp "+get_sandbox_dir()+"/* "+n;
+    assert(system(s1.c_str())==0);
+    assert(system(s2.c_str())==0);
 }
 
 void Testovac::clean_sandbox() {
@@ -190,6 +204,7 @@ int Testovac::submit_solution(const char* taskname,
     string logfile = get_sandbox_dir()+"/test.log";
     retval = system(command.c_str());
     read_from_file(logfile.c_str(), test_log);
+    backup_sandbox();
     return retval;
     // }}}
 }

@@ -18,7 +18,7 @@ int main() {
     }
 
     vector<string> desc;
-    desc = Testovac::get_task_description("01_sucet");
+    desc = Testovac::get_task_description("01_zero");
     printf("zadanie ulohy:\n");
     for (int i=0; i<(int)desc.size(); i++) {
         printf("%s\n", desc[i].c_str());
@@ -47,7 +47,7 @@ int main() {
     program.push_back("end.");*/
 
 
-    int retval = Testovac::submit_solution("01_sucet", program,
+    int retval = Testovac::submit_solution("01_zero", program,
             compile_settings,test_settings,
             &compile_output, &output);
 
