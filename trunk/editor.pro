@@ -1,7 +1,7 @@
 # -------------------------------------------------
 # Project created by QtCreator 2010-03-05T16:03:30
 # -------------------------------------------------
-TARGET = tazba
+TARGET = editor
 TEMPLATE = app
 SOURCES += main.cpp \
     mainwindow.cpp \
