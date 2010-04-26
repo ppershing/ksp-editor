@@ -12,7 +12,6 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->setupUi(this);
 	s = new Settings();
 	s->load();
-	Logger::log("Settings loaded");
 	shopDialog = new ShopDialog(s);
 	kuponDialog = new KuponDialog(s);
 	testDialog = new TestDialog(s);
@@ -111,7 +110,6 @@ void MainWindow::help(){
 void MainWindow::reload(){
 	s->load();
 	ui->textEdit->s = s;
-	testDialog->currentTask = s->getInt("tasks/done");
 
 	// FONT
 

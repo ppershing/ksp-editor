@@ -49,7 +49,7 @@ ShopDialog::ShopDialog(Settings* settings,QWidget *parent) :
 	checkBoxes["synchronize"]=ui->checkBoxSynchronize;
 	checkBoxes["memoryLimit"]=ui->checkBoxMemoryLimit;
 
-	QFont font("Arial", 8);
+	QFont font("Arial", 10);
 
 	QMapIterator<QString, QCheckBox*> i(checkBoxes);
 	while(i.hasNext()){

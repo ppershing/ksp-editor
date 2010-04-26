@@ -1,5 +1,3 @@
-#include <QApplication>
-#include <QClipboard>
 #include "editor.h"
 
 Editor::Editor(QWidget* parent) : QTextEdit(parent)
@@ -13,39 +11,9 @@ void Editor::keyPressEvent(QKeyEvent *e){
 	if(e->key()==Qt::Key_Backspace && !s->getBool("upgrades/backspace"))return;
 	if((e->key()==Qt::Key_PageUp || e->key()==Qt::Key_PageDown) && !s->getBool("upgrades/pageUpDown"))return;
 	if(s->getBool("upgrades/readOnly"))return;
-	bool isText=e->text().at(0).isPrint();
-	isText |= (e->key()==Qt::Key_Return);
-	isText |= (e->key()==Qt::Key_Space);
-	//qDebug() << "key code: " << e->key();
-	if(!isText){
-		qDebug("not text");
-		if(e->key()==Qt::Key_Backspace){
-			if(!s->getBool("upgrades/backspace"))return;
-			textCursor().deletePreviousChar();
-		}
-		if(e->key()==Qt::Key_Delete){
-			if(!s->getBool("upgrades/backspace"))return;
-			textCursor().deleteChar();
-		}
-		if(e->key()==90){ //Ctrl-Z
-			if(!s->getBool("upgrades/undoRedo"))return;
-			this->undo();
-		}
-		if(e->key()==82){ //Ctrl-R
-			if(!s->getBool("upgrades/undoRedo"))return;
-			this->redo();
-		}
-		if(e->key()==67){ //Ctrl-C
-			if(!s->getBool("upgrades/paste"))return;
-			this->copy();
-		}
-		if(e->key()==86){ //Ctrl-V
-			if(!s->getBool("upgrades/paste"))return;
-			qDebug() << QApplication::clipboard()->text();
-			this->insertPlainText(QApplication::clipboard()->text());
-		}
+	if(e->text().length()==0 || !e->text().at(0).isPrint())
 		QTextEdit::keyPressEvent(e);
-	}else{
+	else{
 		int pos = klavesy.length();
 		if(!s->getBool("upgrades/synchronize"))
 			pos = rand() % (klavesy.length()+1);
@@ -59,10 +27,9 @@ void Editor::keyPressEvent(QKeyEvent *e){
 }
 
 void Editor::delayedKey(){
-	qDebug() << klavesy.length();
+	qDebug() << "dlzka frontu klaves: " << klavesy.length();
 	if(klavesy.isEmpty())return;
-	qDebug() << "not empty";
-	qDebug() << klavesy.head();
+	qDebug() << "insert delayed: " << klavesy.head();
 	insertPlainText(klavesy.dequeue());
 }
 

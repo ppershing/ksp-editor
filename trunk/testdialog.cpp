@@ -71,7 +71,7 @@ void TestDialog::on_pushButton_clicked()
 	compile_settings.compile_with_warnings = s->getInt("upgrades/showCompilationWarnings");
 
 	test_settings.memory_limit = s->getBool("upgrades/memoryLimit")?10000:1000;
-	test_settings.time_limit = 2000;
+	test_settings.time_limit = 1000;
 	test_settings.full_test_log = s->getInt("upgrades/showFullLog");
 
 	prog = fromQStringList(program.split("\n"));
