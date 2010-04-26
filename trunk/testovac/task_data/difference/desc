@@ -1,0 +1,9 @@
+<html>
+<h1> Úloha: Rozdiel medzi číslami. </h1>
+Na prvom riadku sú dve čísla 0 < N, K < 1000.
+Potom nasleduje riadok s N číslami,
+každé z nich je väčšie ako 0 a menšie ako 10000000.
+Na výstup napíšte "ôúä", ak sa medzi nimi nachádzajú
+dve s rozdielom práve K.
+V opačnom prípade na výstup vypíšte "%lld".
+(Všetko bez uvodzoviek.)
