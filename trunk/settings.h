@@ -10,7 +10,7 @@ public:
     Settings();
 	void init();
 	void load();
-	QVariant getProp(QString propName,QVariant def=NULL);
+	QVariant getProp(QString propName,QVariant def=(int)NULL);
 	bool isset(QString propName);
 	bool getBool(QString propName);
 	int getInt(QString propName);
