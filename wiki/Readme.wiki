@@ -1,11 +1,11 @@
 Alebo o inštalácii editora.
 
 = Prerekvizity =
-Qt (qtcore, qtgui), g++, make, svn
+Qt 4 (qtcore, qtgui), g++, make, svn
 
 = Instalacia =
-  * treba stiahnut souce kod z "source" tabu cez svn
-  * nasledne treba vytvorit Makefile pomocou _qmake_
+  * treba stiahnut source kod z "source" tabu cez svn
+  * nasledne treba vytvorit Makefile pomocou _qmake -qt=4_
   * _make_
   * potrebujeme este skompilovat wrapper na testovac: _cd testovac && g++ -o wrapper wrapper-mj-${arch}.c_ kde $arch je bud x86 alebo amd64
   * nasledne si mozete uzivat pomocou _./editor_
